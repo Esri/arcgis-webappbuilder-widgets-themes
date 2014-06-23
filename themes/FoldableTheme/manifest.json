@@ -1,0 +1,57 @@
+{
+  "name": "FoldableTheme",
+  "label": "Foldable Theme",
+  "panels": [
+    {
+      "name": "FoldablePanel",
+      "description": "This is foldable panel"
+    },
+    {
+      "name": "SimplePanel",
+      "description": "this is simple panel"
+    }
+  ],
+  "styles": [
+    {
+      "name": "default",
+      "description": "this is default style",
+      "styleColor": "#596679"
+    },
+    {
+      "name": "black",
+      "description": "this is black style",
+      "styleColor": "#000000"
+    },
+    {
+      "name": "green",
+      "description": "this is green style",
+      "styleColor": "#2aaa8a"
+    },
+    {
+      "name": "cyan",
+      "description": "this is cyan style",
+      "styleColor": "#b1d3d4"
+    }
+  ],
+  "layouts": [
+    {
+      "name": "default",
+      "description": "this is default layout"
+    },
+    {
+      "name": "layout1",
+      "description": "this is layout1"
+    }
+  ],
+  "widgets": [
+    {
+      "name": "HeaderController",
+      "description": "this is theme widget controller"
+    }
+  ],
+  "version": "0.0.1",
+  "author": "Esri R&D Center Beijing",
+  "description": "",
+  "copyright": "",
+  "license": "http://www.apache.org/licenses/LICENSE-2.0"
+}

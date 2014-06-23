@@ -1,0 +1,16 @@
+{
+  "groupSetting": [
+    {
+      "label": "AttributeTable",
+      "type": "dropDown"
+    },
+    {
+      "label": "HistogramTimeSlider",
+      "type": "openAll"
+    },
+    {
+      "label": "samples",
+      "type": "dropDown"
+    }
+  ]
+}
