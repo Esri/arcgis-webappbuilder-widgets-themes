@@ -99,7 +99,7 @@ A theme is a folder named as the theme name. It contains the following files:
 <tr>
 </table>
 <br>
-ArcGIS WebApp Builder provides two out-of-box themes, FoldableTheme and TabTheme. You can develop custom themes if these themes do not meet your requirements.
+Web AppBuilder for ArcGIS provides two out-of-box themes, FoldableTheme and TabTheme. You can develop custom themes if these themes do not meet your requirements.
 
 ## Create a Demo theme ##
 In the created Demo theme, there is one panel, two styles, and two layouts. The panel is called `SimpleBorderPanel`, and has a basic border. One style, called `default`, has red as a main color, and another called `black`, has black as a main color. One layout called `default`, places one widget on the left side, and is the other called `right`, places one widget on the right side.

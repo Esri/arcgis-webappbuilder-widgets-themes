@@ -1,5 +1,5 @@
 # Widget development #
-To develop a widget, create a new  `BaseWidget` subclass in the widget folder. The following demonstrates how to create a custom widget from scratch. The screen captures shown below are from Sublime text in which the ArcGIS WebApp Builder directory opens.
+To develop a widget, create a new  `BaseWidget` subclass in the widget folder. The following demonstrates how to create a custom widget from scratch. The screen captures shown below are from Sublime text in which the Web AppBuilder for ArcGIS directory opens.
 
 All of the code for demo widgets are in the stemapp/widgets/samplewidgets/Demo folder. You can view demo widgets through http://**your host**/webapp/?config=sample-configs/config-demo.json.
 
@@ -40,7 +40,7 @@ First, to keep your widget files, create a folder (samplewidgets/Demo). Next, cr
 - The widget’s style file (css/style.css).
 
 ## Extend the BaseWidget class ##
-JavaScript is not a classical language. It is a prototypical object oriented language. As such, to make most developers comfortable with developing widgets, the ArcGIS WebApp Builder uses Dojo’s functions to create and extend classes. The ArcGIS WebApp Builder defines the `BaseWidget` class from which you create the child class, `Widget`.
+JavaScript is not a classical language. It is a prototypical object oriented language. As such, to make most developers comfortable with developing widgets, the Web AppBuilder for ArcGIS uses Dojo’s functions to create and extend classes. The Web AppBuilder for ArcGIS defines the `BaseWidget` class from which you create the child class, `Widget`.
 
 Open Widget.js in a text editor. The basic code for extending `BaseWidget` is:
 
@@ -84,7 +84,7 @@ function(declare, BaseWidget) {
 
 ## Define the widget’s template (UI) ##
 
-ArcGIS WebApp Builder widgets have an HTML template. This template defines the widget’s UI.  
+Web AppBuilder for ArcGIS widgets have an HTML template. This template defines the widget’s UI.  
 	
 Open the Widget.html file in a text editor. Replace it with this:
 
@@ -103,7 +103,7 @@ At this point, test your widget. Open config-demo.json (in stemapp/sample-config
 }
 
 ```
-Start the ArcGIS WebApp Builder through *http://**you host**/webapp/?config=sample-configs/config-demo.json* ,and click the icon. The widget appears like the following:
+Start the Web AppBuilder for ArcGIS through *http://**you host**/webapp/?config=sample-configs/config-demo.json* ,and click the icon. The widget appears like the following:
 
 ![demo widget UI](../images/demo-wiget-ui.png?raw=true)
 
@@ -183,7 +183,7 @@ Apply the changes to the template by removing the hard-coded English language an
 
 ```
 
-Reload your ArcGIS WebApp Builder application. This time, add a URL parameter, `locale=zh-cn`, or you change the browser’s locale configuration to view the change. 
+Reload your Web AppBuilder for ArcGIS application. This time, add a URL parameter, `locale=zh-cn`, or you change the browser’s locale configuration to view the change. 
 
 ![localized](../images/demo-wiget-ui-localized.png?raw=true)
 
@@ -219,7 +219,7 @@ By default, all of the CSS rules you write are applied in all themes. If you wan
 
 ## Access a map ##
 
-The ArcGIS WebApp Builder is a map-centric application. It provides map property defined in the `BaseWidget` class to access the map. You can access the map property through `this.map`. . The widget’s map property is a type of `esri.Map` from ArcGIS JavaScript API, configured in the config.json file. You can access all the map features provided by ArcGIS JavaScript API. Code the widget just like writing a regular ArcGIS JavaScript application.
+The Web AppBuilder for ArcGIS is a map-centric application. It provides map property defined in the `BaseWidget` class to access the map. You can access the map property through `this.map`. . The widget’s map property is a type of `esri.Map` from ArcGIS JavaScript API, configured in the config.json file. You can access all the map features provided by ArcGIS JavaScript API. Code the widget just like writing a regular ArcGIS JavaScript application.
 
 When a widget is instantiated, the map passes into it. As a result, you can access a map property in the `postCreate` or `startup` methods.
 
