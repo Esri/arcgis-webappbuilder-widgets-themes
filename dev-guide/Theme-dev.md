@@ -176,7 +176,7 @@ Notes:
 ### Create files for the theme ###
 As described above, to create a theme, you need to create some necessary files under the theme folder. Here is the file structure of the Demo theme:
 
-![DemoTheme](../images/demo-theme.png?raw=true)
+![DemoTheme](images/demo-theme.png?raw=true)
 
 ### Edit the manifest.json ###
 The manifest.json file describes the theme’s content, and the builder reads this file to get the theme’s content. Based on the specification described above, update the manifest.json file as follows:
@@ -224,7 +224,7 @@ The manifest.json file describes the theme’s content, and the builder reads th
 ### Create the panel ###
 A panel is a UI element that used to display the widget’s content. Multiple widgets can use the same panel. However, the widget does not display directly on the panel. It is put in the WidgetFrame, then the widget frame displays on the panel. One widget frame holds one widget, and one panel can contain more than one widget frame. The following image gives you a general picture about the relationships of the panel, widget frame, and widget.
 
-![Panel](../images/panel-structure.png)  
+![Panel](images/panel-structure.png)  
 
 Developing a panel is as same as developing a web compenent, which requires JavaScript, CSS, and HTML skill and knowledge. It is also beneficial to understand the dojo’s layout concept and practice.
 
