@@ -6,7 +6,7 @@ Web AppBuilder for ArcGIS is built with [ArcGIS API for JavaScript](https://deve
 ### Widget ###
 An Web AppBuilder for ArcGIS widget is a set of text files that you can share, move, and deploy to an Web AppBuilder for ArcGIS application.  
 
-![Widget structure](../images/Widget-model.jpg?raw=true)
+![Widget structure](images/Widget-model.jpg?raw=true)
 
 A widget can be a single JavaScript file, which is an AMD module, or can be as complicated as an AMD package, such as a Dojo package. The above screen capture represents a widget that has a template, configuration file, style file, and internationalization support.
 
