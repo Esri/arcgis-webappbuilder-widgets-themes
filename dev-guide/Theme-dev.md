@@ -2,21 +2,69 @@
 
 ##  Concepts ##
 
-A theme defines panels, styles, and layouts. One app can include more than one theme, but can only use one theme while running. 
+An ArcGIS Web AppBuilder theme is a collection of user interface elements that defines an app's look-and-feel, layout, app navigation and on screen functional UI items such as scale bar, overview map, etc. By developing a theme, you can create your own application interface, interfactive user experience and branding style.
 
-A theme is a folder named as the theme name. It contains the following files:
+The theme elements includes widget panels, style sheets, and layout definitions and theme widgets. One app can include more than one theme, but can only use one theme while running. 
 
-* Similar with a widget, a theme must have an icon file named icon.png, which is under the images folder.  
+The following are the UI element definition:
 
-* A common.css file under the theme folder. It contains style content that is common for all styles.
+<table>
+<tr><th>Theme Element</th><th>Definition</th></tr>
+<tr>
+<td>Panel</td>
+<td>A Panel is an UI window that displays widget's content. A panel can be developed to have its own distinguish behaviors and style for a specific theme. For example, you can develop a panel that can be dragged around the screen and have purple color style that matches your overall theme style. <br><br>
+With the theme panel, widget developers can focusing on developing a widget's function and content without worry about how the widget will be displayed, which further simplys the widget development task.<br><br>
+A theme can contain multiple panels.</td>
+</tr>
+<tr>
+<td>Theme Widget</td>
+<td>A theme widget is no more than a regular Web AppBuilder widget in terms of coding. However, without such widget as part of the theme, the theme is not complete. For example, the Header Controller widget is part of the out-of-box theme, called Foldable theme. Header Controller is developed to navigate all the widgets configured into an app.<br><br>
+Creating the Theme Widget is also a mechanism to ensure a theme can be shared as whole. 
+</td>
+</tr>
+<tr>
+<td>Style</td>
+<td>A theme style is a CSS stylesheet that defines the theme's color scheme. A theme can have multiple styles that each one has a style name.</td>
+</tr>
+<tr>
+<td>Layout</td>
+<td>A theme layout is essentially an app configuration that places all the UI elements (widgets) on the screen. It also includes predefined position holders on the screen where can be configured with widgets during the configuration process using the GUI AppBuilder. A theme can have multiple layouts.</td>
+</tr>
+</table>
 
-* A theme can include multiple styles in the styles folder. Each style is a folder that named as the style name. Each style must have a style.css file. A style named default is necessary.
+##Theme Development Convention##
 
-* A theme can include multiple panels in the panels folder. Each panel is a folder named as the panel name. Each panel must have a Panel.js file.
+There are conventions to follow when developing a Web AppBuilder theme:
+ 
+* All theme elements are contained inside a folder. The folder name should be as **same** as the theme name.
 
-* •	A theme can include multiple layouts in the layouts folder. Each layout is a folder named as the layout name. Each layout must have a config.json file and an icon.png file. A layout named default is necessary.
+* Similar to a widget, a theme must have an icon file named `icon.png`, which is under the `\images` folder.  
 
-* A manifest.json file to describe the theme content. The followings are its properties:
+* the theme root folder contains a `common.css` file. It defines the style content that is common for all styles.
+
+* A theme can include multiple styles in the `\styles` folder. 
+
+* Each style has a folder that named as same as the style name. Each style must have a `style.css` file. 
+
+* There must be a style named `default`.
+
+* A theme can include multiple panels in the `\panels` folder. 
+
+* Each panel has a folder named as same as the panel name. Each panel must have a `Panel.js` file.
+
+* A theme can include multiple layouts in the `\layouts` folder. 
+
+* Each layout has a folder named as same as the layout name. 
+*
+* Each layout must have a `config.json` file and an `icon.png` file. 
+
+* There must be a layout named `default`.
+
+* There must be a `manifest.json` file to describe the theme content. 
+
+##Theme Manifest File##
+
+the theme manifest file is a very important element for developing a theme, which allows a theme to be used within the GUI AppBuilder and also ensure a standard way of sharing a theme. The followings are the manifest properties:
 
 <table>
 <tr>
@@ -43,21 +91,31 @@ A theme is a folder named as the theme name. It contains the following files:
 <tr>
 <td>styles</td> 
 <td>[]</td> 
-<td>A list of theme styles. Each style has a name, description, and styleColor properties.</td>  
+<td>A list of theme styles. Each style has a 'name', 'description', and 'styleColor' properties.<br><br>
+
+The 'styleColor' will be used by the GUI AppBuilder to display the style's color.
+</td>  
 <td>Y</td>  
 <td>N/A</td>
 </tr>
 <tr>
 <td>panels</td> 
 <td>[]</td> 
-<td>A list of theme panels. Each panel has a name and description properties.</td>  
+<td>A list of theme panels. Each panel has a 'name' and 'description' properties. The name should be the same as the panly folder.</td>  
+<td>Y</td>  
+<td>N/A</td>
+</tr>
+<tr>
+<td>widgets</td> 
+<td>[]</td> 
+<td>A list of theme widgets. It contains 'name' and 'description' properties. The widget name should be the same as the widget folder name.</td>  
 <td>Y</td>  
 <td>N/A</td>
 </tr>
 <tr>
 <td>layouts</td> 
 <td>[]</td> 
-<td>A list of theme layouts. Each layout has a name and description properties. A layout is a configuration template file, which contains some widget configurations but leaves the uri property empty.</td>  
+<td>A list of theme layouts. Each layout has a name and description properties. A layout is a configuration template file, which contains some widget configurations but leaves the uri property empty. The layout name should be the same as the layout foilder inside the \layouts folder</td>  
 <td>Y</td>  
 <td>N/A</td>
 </tr>
@@ -101,13 +159,19 @@ A theme is a folder named as the theme name. It contains the following files:
 <br>
 Web AppBuilder for ArcGIS provides two out-of-box themes, FoldableTheme and TabTheme. You can develop custom themes if these themes do not meet your requirements.
 
-## Create a Demo theme ##
-In the created Demo theme, there is one panel, two styles, and two layouts. The panel is called `SimpleBorderPanel`, and has a basic border. One style, called `default`, has red as a main color, and another called `black`, has black as a main color. One layout called `default`, places one widget on the left side, and is the other called `right`, places one widget on the right side.
+## Create a theme ##
+There is a Demo theme comes with the Web AppBuilder as an example of how to develop a theme.
+
+The Demo theme has one panel, one widget, two styles, and two layouts. 
+
+* The panel is called `SimpleBorderPanel`, and has a basic border. 
+* The style, called `default`, has red as a main color, and another called `black`, has black as a main color. 
+* This first layout called `default`, which places one widget on the left side of the screen. Another is called `right`, which places one widget on the right side of the screen.
 
 Notes:
 
-* The source code of the Demo theme is placed under `stemapp/themes/DemoTheme` in our source code repository. You can try the Demo theme in the builder.
-* If you create a custom theme, put your theme folder under the theme repository folder (`stemapp/themes` by default).
+* The source code of the Demo theme is under the folder `stemapp/themes/DemoTheme`. You can try the Demo theme from within the GUI AppBuilder.
+* Once create a custom theme, You can put the theme folder under the theme repository folder (`stemapp/themes` by default).
 
 ### Create files for the theme ###
 As described above, to create a theme, you need to create some necessary files under the theme folder. Here is the file structure of the Demo theme:
@@ -116,6 +180,7 @@ As described above, to create a theme, you need to create some necessary files u
 
 ### Edit the manifest.json ###
 The manifest.json file describes the theme’s content, and the builder reads this file to get the theme’s content. Based on the specification described above, update the manifest.json file as follows:
+
 ```
 {
   "name": "DemoTheme",
@@ -149,7 +214,7 @@ The manifest.json file describes the theme’s content, and the builder reads th
   ],
   "version": "0.0.1",
   "author": "Esri R&D Center Beijing",
-  "description": "",
+  "description": "This theme is for demoing the creation of a theme",
   "copyright": "",
   "license": "http://www.apache.org/licenses/LICENSE-2.0"
 }
@@ -161,16 +226,19 @@ A panel is a UI element that used to display the widget’s content. Multiple wi
 
 ![Panel](../images/panel-structure.png)  
 
-Developing a panel is the hardest work for a custom theme. To create a panel, you need JavaScript, CSS, and HTML knowledge. It is also beneficial to understand the dojo’s layout knowledge.
+Developing a panel is as same as developing a web compenent, which requires JavaScript, CSS, and HTML skill and knowledge. It is also beneficial to understand the dojo’s layout concept and practice.
 
-To create a panel, create a class that derives from `BaseWidgetPanel`. If the default widget frame meets your requirements, create a frame class that derives from `BaseWidgetFrame`.
+To create a panel, you need create a class that derives from `BaseWidgetPanel`. If the default widget frame meets your requirements, you can create a frame class that derives from `BaseWidgetFrame`.
 
-You can override some functions when you create your panel:
+###Theme Lifecycle Functions###
+Just as the widget development, there are lifecycle functions that you can override to interactive with the AppBuilder framework. 
+
+You can override the following functions when you create your panel:
 
 * `createFrame`- This function returns the widget frame object.
 * `reloadWidget`- This function is called by the builder when the widget is modified.
 
-The meaning of the following functions is the same as widget:
+The following lifecycle functions is the same as widget's:
 
 * `onOpen`
 * `onClose`
@@ -179,7 +247,8 @@ The meaning of the following functions is the same as widget:
 * `onNormalize`
 
 #### Create SimpleBorderPanel ####
-Because the SimpleBorderPanel is very basic, extend the `BaseWidgetPanel` without adding any new features. See the following code:
+Since the SimpleBorderPanel is very simple, it can just extend the `BaseWidgetPanel` without adding any new features. See the following code:
+
 ```
 define(['dojo/_base/declare',
   'jimu/BaseWidgetPanel'
@@ -193,12 +262,13 @@ function(declare, BaseWidgetPanel) {
 For more information about panels, see `BaseWidgetPanel`.
 
 ### Create the styles ###
-You need to write some style (CSS) files to make the theme more beautiful. In the style files, you can override the styles in `jimu.css`, and write the styles that your panel needs as well. Place the common styles (used by all of the styles) in the `common.css` file, and the specific styles in the corresponding `style.css` files.
+You need to write some style (CSS) files to make the theme more beautiful and have consistent UI. In the style files, you can override the styles in `jimu.css`, and write the styles that your panel needs as well. Place the common styles (used by all of the styles) in the `common.css` file, and the specific styles in the corresponding `style.css` files.
 
-There should be a style named `default`, to use when the theme is selected in the builder.
+There should be a style named `default`, which is used by default from within the GUI AppBuilder.
 
-#### Edit teh default style ####
-Because the default style’s main color is red, use the following style:
+#### Edit the default style ####
+The default style’s main color is red, thus use the following style:
+
 ```
 .jimu-border-panel{
   border: 1px solid red;
@@ -212,13 +282,16 @@ Because the default style’s main color is red, use the following style:
 ```
 
 ### Create the layouts ###
-A layout is a config template file, which contains some widget config properties but leaves the `uri` property empty. When the app’s layout is changed, the builder does the following:
+A layout is a config template file, which contains some widget config properties but leaves the `uri` property empty. 
 
- * For preload widgets, use the panel and position properties in the new layout to replace the panel, and position properties in the old layout by order. If the widget count is not the same, ignore the rest.
+There are rules have been implemented inside the GUI AppBuilder that apply when swtiching layouts from A to B. The rules are:
+
+ * For on-screen widgets, use the panel and position properties of the layout A to replace the panel, and position properties in the layout B, by order. 
+ * If the widget placeholder count is not the same, ignore extra positions.
  * For a widget pool, replace the group’s panel property by order.
  * For a map, replace the position property.
 
-There should be a layout named `default`. This layout is used when the theme is selected in the builder to create the app config object.
+There should be a layout named `default`. This layout is used by default when its theme is selected in the GUI AppBuilder.
 
 #### Edit default layout ####
 ```
@@ -318,7 +391,7 @@ There should be a layout named `default`. This layout is used when the theme is 
 ```
 ### Try the Demo theme in the builder ###
 
-Start the builder and create a new app. If no errors occur, the Demo theme shows in the Themes tab.
+Once you placed the Demo theme to the `themes` folder, start the AppBuilder and create a new app, the Demo theme shows in the Themes tab.
 
 1. Click the Demo theme.
 2. Click the Layout icon to switch layouts.
