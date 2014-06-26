@@ -31,7 +31,7 @@ A widget at a minimum requires one file, the JavaScript file that defines it. Ho
 
 First, to keep your widget files, create a folder (samplewidgets/Demo). Next, create the following set of folders and files in the folder:
 
-![demo widget folder](../images/demo-wiget-folder.png?raw=true)
+![demo widget folder](images/demo-wiget-folder.png?raw=true)
 
 - The JavaScript file that defines the widget (Widget.js).
 - Template file that defines the widget’s UI (Widget.html)
@@ -105,7 +105,7 @@ At this point, test your widget. Open config-demo.json (in stemapp/sample-config
 ```
 Start the Web AppBuilder for ArcGIS through *http://**you host**/webapp/?config=sample-configs/config-demo.json* ,and click the icon. The widget appears like the following:
 
-![demo widget UI](../images/demo-wiget-ui.png?raw=true)
+![demo widget UI](images/demo-wiget-ui.png?raw=true)
 
 **Note**  
 By default, the widget's template does not support dijit in the template. If you need to use dijit in the template, add `dijit/_WidgetsInTemplateMixin` into your required list, and mixin this class into your widget. Meanwhile, ensure that you have required all of the dijits used in the template. For more information, see [Creating Template-based Widgets](http://dojotoolkit.org/documentation/tutorials/1.9/templated/)
@@ -135,7 +135,7 @@ Alter the HTML template to use the config that you have read from your config fi
 
 Now, the Demo widget looks like the following:
 
-![configured demo widget](../images/demo-wiget-ui-configured.png?raw=true)
+![configured demo widget](images/demo-wiget-ui-configured.png?raw=true)
 
 The ${configData.configText} marker in the template is automatically substituted with the values in the config.json file.
 
@@ -205,7 +205,7 @@ Note that all of the selectors in the style.css file should contain the base CSS
 
 Open the viewer. The widget resembles the following:
 
-![demo widget](../images/demo-wiget-final.png?raw=true)
+![demo widget](images/demo-wiget-final.png?raw=true)
 
 ## Let the widget fit the theme ##
 
