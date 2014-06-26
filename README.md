@@ -1,4 +1,4 @@
 arcgis-appbuilder-js
 ====================
 
-Components for the ArcGIS WebApp Builder
+Components for the Web AppBuilder for ArcGIS
