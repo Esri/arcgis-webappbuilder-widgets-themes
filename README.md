@@ -1,4 +1,4 @@
-arcgis-appbuilder-js
+Web AppBuilder for ArcGIS GitHub Community
 ====================
 
-Components for the Web AppBuilder for ArcGIS
+This github repo is for the Web AppBuilder developer community to share their works in developing widgets and themes.
