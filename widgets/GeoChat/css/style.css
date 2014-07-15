@@ -1,0 +1,135 @@
+.jimu-widget-geochat-setting{
+  margin:0;
+  padding:0;
+  font-size:15px;
+}
+
+.jimu-widget-geochat-setting .setting-table > thead > tr > th,
+.jimu-widget-geochat-setting .setting-table > tbody > tr > td{
+  height:40px;
+  line-height:40px;
+  vertical-align:middle;
+}
+
+.jimu-widget-geochat-setting .input-table > tbody > tr > .first{
+  width:auto;
+  text-align: right;
+  padding-right:15px;
+}
+
+.jimu-widget-geochat-setting .input-table > tbody > tr > .second{
+  width:570px;
+}
+
+/* classbreaks for the shared Graphic Layer*/        
+@keyframes animate_end {
+	100% {
+		stroke-width: 25pt;
+	}
+}
+@-webkit-keyframes animate_end {
+	100% {
+		stroke-width: 25pt;
+	}
+}
+
+@keyframes person_animate_end {
+	100% {
+		fill-opacity: 1.0;
+	}
+}
+@-webkit-keyframes person_animate_end {
+	100% {
+		fill-opacity: 1.0;
+		stroke-width: 1pt;
+		stroke: red;
+	}
+}
+
+.jimu-widget-geochat-setting.chat-person {
+	fill-opacity: 0.6;
+	stroke-width: 0pt;
+}
+
+.jimu-widget-geochat-setting.chat-person:hover {
+	animation-duration: 0.02s;
+	animation-name: person_animate_end;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-fill-mode: forwards;
+	-webkit-animation-duration: 0.02s;
+	-webkit-animation-name: person_animate_end;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-iteration-count: 1;
+}
+
+path[data-classification="0"] {
+	stroke-width: 15pt;
+	stroke-opacity: 0.5;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	
+	animation-duration: 1s;
+	animation-name: animate_end;
+	animation-timing-function: linear;
+	animation-fill-mode: forwards;
+	animation-direction: alternate;
+	animation-iteration-count: infinite;
+	
+	-webkit-animation-duration: 1s;
+	-webkit-animation-name: animate_end;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-fill-mode: forwards;			
+	-webkit-animation-direction: alternate;
+	-webkit-animation-iteration-count: infinite;
+}
+path:hover[data-classification="0"] {
+	cursor: pointer;
+	animation-duration: 0.2s;
+	animation-name: highlight;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+	-webkit-animation-duration: 0.2s;
+	-webkit-animation-name: highlight;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-iteration-count: 1;
+}
+
+path[data-classification="1"] {
+	stroke-width: 15pt;
+	stroke-opacity: 0.5;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+path:hover[data-classification="1"] {
+	cursor: pointer;
+	animation-duration: 0.2s;
+	animation-name: highlight;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+	-webkit-animation-duration: 0.2s;
+	-webkit-animation-name: highlight;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-iteration-count: 1;
+}
+
+
+/* mouse hover animation */
+@keyframes highlight {
+	100% {
+		stroke-width: 30pt;
+	}
+}
+
+@-webkit-keyframes highlight {
+	100% {
+		stroke-width: 30pt;
+	}
+}
+	

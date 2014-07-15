@@ -1,0 +1,9 @@
+{
+  "name": "GeoChat",
+  "platform": "HTML",
+  "version": "0.0.1",
+  "author": "Feng Zhang",
+  "description": "Sharing location based information in real-time.",
+  "copyright": "",
+  "license": "http://www.apache.org/licenses/LICENSE-2.0"
+}

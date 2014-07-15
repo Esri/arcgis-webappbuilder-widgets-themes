@@ -1,0 +1,86 @@
+<div>
+	<div data-dojo-type="dijit.Dialog" title="Pickup Color"
+		 data-dojo-attach-point="dialogColor"
+		 data-dojo-props="closable:true">
+		 <div data-dojo-type="dojox.widget.ColorPicker" 
+			  data-dojo-attach-point="colorPicker">
+		 </div>
+		 <button data-dojo-type="dijit/form/Button" type="button" 
+				 data-dojo-attach-point="btnColorPickerOK">OK
+		 </button>
+	</div>
+	
+	<input data-dojo-type="dijit/form/TextBox" style="width:100px"
+		   data-dojo-attach-point="userName"
+		   data-dojo-attach-event="onKeyDown:userNameKeyPress"
+		   data-dojo-props="placeholder:'Your Name'">
+	</input>	  
+	@
+	<input data-dojo-type="dijit/form/TextBox" style="width:90px"
+		   data-dojo-attach-point="confID" 
+		   data-dojo-attach-event="onKeyDown:confIDKeyPress"
+		   data-dojo-props="placeholder:'Lobby'"
+		   disabled = "true">
+	</input>	  
+	<button data-dojo-type="dijit/form/Button" type="button" 
+			data-dojo-attach-point="connectButton"
+			data-dojo-attach-event="click:connect">Connect</button>
+	<br>
+	<br>
+
+	<div id="chatSettings" style='border:0px solid #aaa; width:100%; height:100px; overflow:auto;'>
+	
+	Settings: <br>
+	<input  data-dojo-type="dijit/form/CheckBox" 
+			data-dojo-attach-point="autoExtent" 
+			data-dojo-props="checked: true"
+			disabled = "true">
+	</input><label for="checkBox">Auto Extent</label>	
+	<input  data-dojo-type="dijit/form/CheckBox" 
+			data-dojo-attach-point="currentExtent" 
+			data-dojo-props="checked: false"
+			disabled = "true">
+	</input><label for="checkBox">Current Extent Only</label>	
+	<br>
+	<br>
+	Share My: <br>
+	<input  data-dojo-type="dijit/form/CheckBox" 
+			data-dojo-attach-point="shareMyExtent" 
+			data-dojo-attach-event="onChange:shareExtentChange"
+			data-dojo-props="checked: false"
+			disabled = "true">
+	</input><label for="checkBox">Extent</label>
+	<input  data-dojo-type="dijit/form/CheckBox" 
+			data-dojo-attach-point="shareMyLocation" 
+			data-dojo-attach-event="onChange:shareLocationChange" 
+			data-dojo-props="checked: false"
+			disabled = "true">
+	</input><label for="checkBox">Location</label>
+	<input  data-dojo-type="dijit/form/CheckBox" 
+			data-dojo-attach-point="shareMyCursor"
+			data-dojo-attach-event="onChange:shareCursorChange" 
+			data-dojo-props="checked: false"
+			disabled = "true">
+	</input><label for="checkBox">Cursor</label>
+	</div>
+
+	<br>
+	
+	<div id="clientNameList" style='border:1px solid #aaa; width:100%; height:200px; overflow:auto; resize:vertical'>
+	</div>
+	<br>
+	
+	<div id='chatArea' style='border:1px solid #aaa; width:100%; height:300px; overflow:auto; resize:vertical' >
+	</div> 
+
+	<br>
+
+	<input data-dojo-type="dijit/form/TextBox" style="width:100%;"
+			data-dojo-attach-point="iputText" 
+			data-dojo-attach-event="change:textchange, onKeyDown:textKeyPress"
+			data-dojo-props="intermediateChanges:true, placeholder:'Say something ...'"
+			disabled = "true">
+	</input>
+	
+</div>
+
