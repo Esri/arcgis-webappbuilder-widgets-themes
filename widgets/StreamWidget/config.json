@@ -1,0 +1,7 @@
+{
+	"serviceURL":"http://ec2-75-101-155-202.compute-1.amazonaws.com:6080/arcgis/rest/services/Flights/StreamServer",
+	"totalMax":"5000",
+	"showTracks":"true",
+	"numMaxTrackPoints":"5",
+	"showLines":"true"
+}

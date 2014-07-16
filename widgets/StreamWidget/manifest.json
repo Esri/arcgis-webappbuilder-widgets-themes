@@ -1,0 +1,23 @@
+{
+  "name": "StreamWidget",
+  "2D":"true",
+  "3D":"false",
+  "platform": "HTML",
+  "version": "0.0.1",
+  "author": "Julie Powell and James Cardona",
+  "description": "This is a demo widget to show streaming",
+  "copyright": "",
+  "license": "http://www.apache.org/licenses/LICENSE-2.0",
+  "properties": {
+		"inPanel":true,
+		"hasLocale":false,
+		"hasStyle":true,
+		"hasConfig":true,
+		"hasUIFile":true,
+		"hasSettingPage":false,
+		"hasSettingUIFile":false,
+		"hasSettingLocale":false,
+		"hasSettingStyle":false,
+		"IsController":false
+  }
+}
