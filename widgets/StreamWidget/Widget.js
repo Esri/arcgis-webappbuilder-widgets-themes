@@ -232,14 +232,14 @@ define([
             refreshRate: this.streamConfigs.refreshRate
           };
         
-        return configs;
-		/*return {
+       // return configs;
+		return {
 		useTemporal: false,
 		maxPoints:null,
 		showTracks:false,
 		totalMax:10000,
 		refreshRate:null
-		};*/
+		};
       },
  
       setWhere: function (){
