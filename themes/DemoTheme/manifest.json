@@ -1,0 +1,41 @@
+{
+  "name": "DemoTheme",
+  "label": "Demo Theme",
+  "panels": [
+    {
+      "name": "SimpleBorderPanel",
+      "description": "This is a panel with a border"
+    }
+  ],
+  "styles": [
+    {
+      "name": "default",
+      "description": "this is default style",
+      "styleColor": "red"
+    },
+    {
+      "name": "black",
+      "description": "this is black style",
+      "styleColor": "#000000"
+    }
+  ],
+  "layouts": [
+    {
+      "name": "default",
+      "description": "this is the left layout"
+    },
+    {
+      "name": "right",
+      "description": "this is the right layout"
+    }
+  ],
+  "version": "1.1",
+  "wabVersion": "1.1",
+  "author": "Esri R&D Center Beijing",
+  "description": "",
+  "copyright": "",
+  "license": "http://www.apache.org/licenses/LICENSE-2.0",
+  "properties": {
+    "hasLocale": true
+  }
+}
