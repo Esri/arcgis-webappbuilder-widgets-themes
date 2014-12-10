@@ -1,9 +1,16 @@
-﻿define({
-
-    placeholderBookmarkName: "بيت_Bookmark Name_لاحقة",
-    ok: "بيت_Ok_لاحقة",
-    errorNameExist: "بيت_Bookmark exists!_لاحقة",
-    errorNameNull: "بيت_Invalid bookmark name!_لاحقة",
-    addBookmark: "بيت_Create a New Bookmark_لاحقة"
-
-});
+﻿define(
+   ({
+    add: "انقر لإضافة علامة مرجعية جديدة",
+    title: "عنوان",
+    placeholderBookmarkName: "اسم الإشارة المرجعية",
+    ok: "موافق",
+    cancel: "إلغاء الأمر",
+    warning: "يرجى إنهاء التحرير!",
+    edit: "حرر العلامة المرجعية",
+    errorNameExist: "الإشارات المرجعية موجودة!",
+    errorNameNull: "اسم إشارة مرجعية غير صحيح!",
+    addBookmark: "إنشاء إشارة مرجعية جديدة",
+    thumbnail: "صورة مصغرة",
+    thumbnailHint: "انقر على الصورة لتحديثها"
+  })
+);

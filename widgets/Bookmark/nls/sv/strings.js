@@ -1,9 +1,12 @@
-﻿define({
-    labelBookmarkName: "Å_Bookmark the current view_ö",
-    labelPlay: "Å_Play All_ö",
-    labelStop: "Å_Stop_ö",
-    labelDelete: "Å_Delete_ö",
-    placeholderBookmarkName: "Å_Bookmark Name_ö",
-    errorNameExist: "Å_Bookmark exists!_ö",
-    errorNameNull: "Å_Invalid bookmark name!_ö"
-});
+﻿define(
+   ({
+    labelBookmarkName: "Skapa ett bokmärke för den aktuella vyn",
+    labelPlay: "Spela alla",
+    labelStop: "Stoppa",
+    labelDelete: "Ta bort",
+    placeholderBookmarkName: "Skapa ett bokmärke för namn",
+    errorNameExist: "Det finns ett bokmärke!",
+    errorNameNull: "Ogiltigt namn på bokmärke!",
+    _widgetLabel: "Bokmärke"
+  })
+);

@@ -28,6 +28,9 @@
   bottom: 0;
   height: 30px;
   text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .jimu-img-node:hover{
   color: #51b1fe;

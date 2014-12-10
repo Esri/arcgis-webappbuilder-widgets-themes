@@ -27,12 +27,16 @@ define([
     'jimu/utils',
     'jimu/dijit/ViewStack'
   ],
-  function(declare, lang, html, on, domConstruct, mouse, query, _WidgetBase, _TemplatedMixin, utils, ViewStack) {
+  function(
+    declare, lang, html, on, domConstruct, mouse,
+    query, _WidgetBase, _TemplatedMixin, utils, ViewStack
+  ) {
     //3*3 tile nodes, with a close button
     return declare([_WidgetBase, _TemplatedMixin], {
       baseClass: 'jimu-header-more-popup',
       templateString: '<div><div class="pages" data-dojo-attach-point="pagesNode"></div>' +
-        '<div class="points"><div class="points-inner" data-dojo-attach-point="pointsNode"></div></div></div>',
+        '<div class="points"><div class="points-inner"' +
+        'data-dojo-attach-point="pointsNode"></div></div></div>',
       margin: 4,
       postCreate: function() {
         this.nodes = [];
@@ -84,7 +88,11 @@ define([
           nodeStyle.height = this.nodeWidth + 'px';
         }
         if (typeof ml === 'number') {
-          nodeStyle.marginLeft = ml + 'px';
+          if (window.isRTL){
+            nodeStyle.marginRight = ml + 'px';
+          }else {
+            nodeStyle.marginLeft = ml + 'px';
+          }
         }
         if (typeof mt === 'number') {
           nodeStyle.marginTop = mt + 'px';
@@ -157,7 +165,7 @@ define([
         var node, item;
         item = this.items[i];
         node = domConstruct.create('div', {
-          'class': 'icon-node',
+          'class': 'icon-node jimu-float-leading',
           title: item.label,
           settingId: item.id
         }, pageNode);
@@ -182,7 +190,7 @@ define([
       createEmptyItemNode: function(i, pageNode) {
         var node;
         node = domConstruct.create('div', {
-          'class': 'icon-node'
+          'class': 'icon-node jimu-float-leading'
         }, pageNode);
         this.setItemNodePosition(node, i);
         this.nodes.push(node);

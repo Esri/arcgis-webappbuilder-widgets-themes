@@ -1,9 +1,16 @@
-﻿define({
-
-    placeholderBookmarkName: "Å_Bookmark Name_ö",
-    ok: "Å_Ok_ö",
-    errorNameExist: "Å_Bookmark exists!_ö",
-    errorNameNull: "Å_Invalid bookmark name!_ö",
-    addBookmark: "Å_Create a New Bookmark_ö"
-
-});
+﻿define(
+   ({
+    add: "Klicka för att lägga till ett nytt bokmärke.",
+    title: "Titel",
+    placeholderBookmarkName: "Namn på bokmärke",
+    ok: "OK",
+    cancel: "Avbryt",
+    warning: "Slutför redigeringen!",
+    edit: "Redigera bokmärke",
+    errorNameExist: "Det finns ett bokmärke!",
+    errorNameNull: "Ogiltigt namn på bokmärke!",
+    addBookmark: "Skapa ett nytt bokmärke",
+    thumbnail: "Miniatyrbild",
+    thumbnailHint: "Klicka på bilden för att uppdatera"
+  })
+);

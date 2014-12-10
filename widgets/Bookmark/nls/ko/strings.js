@@ -1,9 +1,12 @@
-﻿define({
-    labelBookmarkName: "한_Bookmark the current view_빠",
-    labelPlay: "한_Play All_빠",
-    labelStop: "한_Stop_빠",
-    labelDelete: "한_Delete_빠",
-    placeholderBookmarkName: "한_Bookmark Name_빠",
-    errorNameExist: "한_Bookmark exists!_빠",
-    errorNameNull: "한_Invalid bookmark name!_빠"
-});
+﻿define(
+   ({
+    labelBookmarkName: "현재 뷰에 책갈피 설정",
+    labelPlay: "모두 재생",
+    labelStop: "중지",
+    labelDelete: "삭제",
+    placeholderBookmarkName: "책갈피 이름",
+    errorNameExist: "책갈피가 있습니다.",
+    errorNameNull: "잘못된 책갈피 이름입니다.",
+    _widgetLabel: "책갈피"
+  })
+);

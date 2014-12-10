@@ -1,9 +1,5 @@
 {
-
   "widgetOnScreen": {
-    "panel": {
-      "uri": "themes/FoldableTheme/panels/TitlePanel/Panel"
-    },
     "widgets": [{
         "positionRelativeTo": "browser",
         "position": {
@@ -25,7 +21,7 @@
       }, {
         "position": {
           "left": 200,
-          "bottom": 10
+          "bottom": 20
         }
       },{
         "position": {

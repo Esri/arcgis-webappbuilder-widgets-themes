@@ -1,9 +1,16 @@
-﻿define({
-
-    placeholderBookmarkName: "Š_Bookmark Name_ä",
-    ok: "Š_Ok_ä",
-    errorNameExist: "Š_Bookmark exists!_ä",
-    errorNameNull: "Š_Invalid bookmark name!_ä",
-    addBookmark: "Š_Create a New Bookmark_ä"
-
-});
+﻿define(
+   ({
+    add: "Klikkige uue järjehoidja lisamiseks",
+    title: "Pealkiri",
+    placeholderBookmarkName: "Järjehoidja nimi",
+    ok: "OK",
+    cancel: "Tühista",
+    warning: "Viige muutmine lõpule!",
+    edit: "Muuda järjehoidjat",
+    errorNameExist: "Järjehoidja on olemas!",
+    errorNameNull: "Vigane järjehoidja nimi!",
+    addBookmark: "Loo uus järjehoidja",
+    thumbnail: "Pisipilt",
+    thumbnailHint: "Klikkige uuendamiseks pilti"
+  })
+);

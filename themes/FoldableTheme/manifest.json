@@ -1,6 +1,5 @@
 {
   "name": "FoldableTheme",
-  "label": "Foldable Theme",
   "panels": [
     {
       "name": "FoldablePanel",
@@ -31,6 +30,16 @@
       "name": "cyan",
       "description": "this is cyan style",
       "styleColor": "#b1d3d4"
+    },
+    {
+      "name": "red",
+      "description": "this is red style",
+      "styleColor": "#c92e49"
+    },
+    {
+      "name": "purple",
+      "description": "this is purple style",
+      "styleColor": "#ab6dae"
     }
   ],
   "layouts": [
@@ -49,7 +58,8 @@
       "description": "this is theme widget controller"
     }
   ],
-  "version": "0.0.1",
+  "version": "1.1",
+  "wabVersion": "1.1",
   "author": "Esri R&D Center Beijing",
   "description": "",
   "copyright": "",

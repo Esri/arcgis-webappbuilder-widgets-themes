@@ -1,9 +1,12 @@
-﻿define({
-    labelBookmarkName: "ł_Bookmark the current view_ą",
-    labelPlay: "ł_Play All_ą",
-    labelStop: "ł_Stop_ą",
-    labelDelete: "ł_Delete_ą",
-    placeholderBookmarkName: "ł_Bookmark Name_ą",
-    errorNameExist: "ł_Bookmark exists!_ą",
-    errorNameNull: "ł_Invalid bookmark name!_ą"
-});
+﻿define(
+   ({
+    labelBookmarkName: "Dodaj zakładkę do bieżącego widoku",
+    labelPlay: "Odtwórz wszystko",
+    labelStop: "Zatrzymaj",
+    labelDelete: "Usuń",
+    placeholderBookmarkName: "Nazwa zakładki",
+    errorNameExist: "Zakładka już istnieje!",
+    errorNameNull: "Nieprawidłowa nazwa zakładki!",
+    _widgetLabel: "Zakładka"
+  })
+);

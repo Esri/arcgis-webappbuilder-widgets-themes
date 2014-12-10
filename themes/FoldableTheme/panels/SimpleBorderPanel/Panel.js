@@ -15,11 +15,18 @@
 ///////////////////////////////////////////////////////////////////////////
 
 define(['dojo/_base/declare',
-  'jimu/BaseWidgetPanel'
+  'dojo/_base/html',
+  'jimu/BaseWidgetPanel',
+  'jimu/utils'
 ],
-function(declare, BaseWidgetPanel) {
+function(declare, html, BaseWidgetPanel, utils) {
 
   return declare([BaseWidgetPanel], {
-    baseClass: 'jimu-widget-panel jimu-simple-panel'
+    baseClass: 'jimu-widget-panel jimu-simple-panel',
+
+    startup: function(){
+      this.inherited(arguments);
+      html.setStyle(this.domNode, utils.getPositionStyle(this.position));
+    }
   });
 });

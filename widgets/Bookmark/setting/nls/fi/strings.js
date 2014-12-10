@@ -1,9 +1,16 @@
-﻿define({
-
-    placeholderBookmarkName: "Å_Bookmark Name_ö",
-    ok: "Å_Ok_ö",
-    errorNameExist: "Å_Bookmark exists!_ö",
-    errorNameNull: "Å_Invalid bookmark name!_ö",
-    addBookmark: "Å_Create a New Bookmark_ö"
-
-});
+﻿define(
+   ({
+    add: "Lisää uusi kirjanmerkki napsauttamalla",
+    title: "Otsikko",
+    placeholderBookmarkName: "Kirjanmerkin nimi",
+    ok: "OK",
+    cancel: "Peruuta",
+    warning: "Viimeistele muokkaus.",
+    edit: "Muokkaa kirjanmerkkiä",
+    errorNameExist: "Kirjanmerkki on olemassa!",
+    errorNameNull: "Kirjanmerkin nimi on virheellinen!",
+    addBookmark: "Luo uusi kirjanmerkki",
+    thumbnail: "Pikkukuva",
+    thumbnailHint: "Päivitä napsauttamalla kuvaa"
+  })
+);

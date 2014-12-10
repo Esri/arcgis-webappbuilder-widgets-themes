@@ -27,13 +27,16 @@ define(['dojo/_base/declare',
     './FoldableDijit',
     './FoldableWidgetFrame'
   ],
-  function(declare, lang, html, array, baseFx, on, aspect, BaseWidgetPanel, BaseWidgetFrame, utils, FoldableDijit, FoldableWidgetFrame) {
-    var criticality = 360;
+  function(
+    declare, lang, html, array, baseFx, on, aspect, BaseWidgetPanel,
+    BaseWidgetFrame, utils, FoldableDijit, FoldableWidgetFrame
+  ) {
+    var criticality = jimuConfig.widthBreaks[0];
     var currentLh = html.getMarginBox(jimuConfig.layoutId).h; // layout height
     /* global jimuConfig */
     function isFullWindow() {
       var layoutBox = html.getMarginBox(jimuConfig.layoutId);
-      if (layoutBox.w * 0.7 <= criticality) {
+      if (layoutBox.w <= criticality) {
         return true;
       } else {
         return false;
@@ -49,7 +52,7 @@ define(['dojo/_base/declare',
 
     function getPanelWidth() {
       var layoutBox = html.getMarginBox(jimuConfig.layoutId);
-      if (layoutBox.w * 0.7 <= criticality) {
+      if (layoutBox.w <= criticality) {
         return '100%';
       } else {
         return 360;
@@ -65,26 +68,19 @@ define(['dojo/_base/declare',
 
       closeTolerance: 30,
 
-      closeBtnHandle: null,
+      // closeBtnHandle: null,
 
       startup: function() {
         this.titleHeight = getHeaderHeight();
         this.isFull = null;
         this.inherited(arguments);
         this.createCloseBtn();
+        this.createFoldableBtn();
         this.resize();
       },
 
       getFullPosition: function() {
-        var fullPos = {},
-          pos = this.position;
-        fullPos.left = pos.left ? pos.left : 'auto';
-        fullPos.right = pos.right ? pos.right : 'auto';
-        fullPos.top = pos.top ? pos.top : 'auto';
-        fullPos.bottom = pos.bottom ? pos.bottom : 'auto';
-        fullPos.width = pos.width ? pos.width : 'auto';
-        fullPos.height = pos.height ? pos.height : 'auto';
-
+        var fullPos = this.position;
         if (this.isFull) {
           fullPos.right = 0;
           fullPos.bottom = 0;
@@ -96,9 +92,6 @@ define(['dojo/_base/declare',
         var pos;
 
         this.position.width = getPanelWidth();
-        if (this.iframePane) {
-          this.iframePane.setPosition(this.position);
-        }
 
         if (this.isFull) {
           html.place(this.domNode, jimuConfig.layoutId);
@@ -112,14 +105,7 @@ define(['dojo/_base/declare',
           };
         } else {
           html.place(this.domNode, jimuConfig.mapId);
-          pos = {
-            left: this.position.left ? this.position.left : 'auto',
-            right: this.position.right ? this.position.right : 'auto',
-            top: this.position.top ? this.position.top : 'auto',
-            bottom: this.position.bottom ? this.position.bottom : 'auto',
-            width: this.position.width ? this.position.width : 'auto',
-            height: this.position.height ? this.position.height : 'auto'
-          };
+          pos = this.position;
         }
         html.setStyle(this.domNode, utils.getPositionStyle(pos));
         utils.setVerticalCenter(this.titleNode);
@@ -149,9 +135,6 @@ define(['dojo/_base/declare',
 
       _changePos: function() {
         this.position.width = getPanelWidth();
-        if (!isFullWindow()) {
-          this.position.left = 'auto';
-        }
 
         this.position.height = 'auto';
       },
@@ -162,9 +145,19 @@ define(['dojo/_base/declare',
         if (this.isFull !== isFullWindow() || changedLh()) {
           this.isFull = isFullWindow();
           this.changePosition();
+          if (this.isFull) {
+            html.addClass(this.foldableNode, 'fold-down');
+            html.removeClass(this.foldableNode, 'fold-up');
+          } else {
+            html.removeClass(this.foldableNode, 'fold-down');
+            html.addClass(this.foldableNode, 'fold-up');
+          }
         }
+
+        var panelWidth = getPanelWidth();
+        panelWidth = typeof panelWidth === 'number' ? panelWidth + 'px' : panelWidth;
         html.setStyle(this.domNode, {
-          width: getPanelWidth() + 'px'
+          width: panelWidth
         });
 
         this.inherited(arguments);
@@ -199,7 +192,8 @@ define(['dojo/_base/declare',
           }
         }, this);
 
-        h = (box.h - (this.getChildren().length - openedPaneCount) * this.getChildren()[0].titleHeight) / openedPaneCount;
+        h = (box.h - (this.getChildren().length - openedPaneCount) *
+          this.getChildren()[0].titleHeight) / openedPaneCount;
         console.log('box.h=' + box.h + ', h=' + h);
         array.forEach(this.getChildren(), function(frame) {
           if (frame.folded) {
@@ -216,23 +210,27 @@ define(['dojo/_base/declare',
       },
 
       createCloseBtn: function() {
-        if (this.isFull) {
-          this.closeNode = html.create('div', {
-            'class': 'fold-btn jimu-vcenter'
-          }, this.titleNode);
-        } else {
-          this.closeNode = html.create('div', {
-            'class': 'close-btn jimu-vcenter'
-          }, this.titleNode);
+        this.closeNode = html.create('div', {
+          'class': 'close-btn jimu-vcenter jimu-float-trailing'
+        }, this.titleNode);
 
-          this.closeBtnHandle = on(this.closeNode, 'click', lang.hitch(this, function(evt) {
-            evt.stopPropagation();
-            this.panelManager.closePanel(this);
-          }));
-        }
+        this.own(on(this.closeNode, 'click', lang.hitch(this, function(evt) {
+          evt.stopPropagation();
+          this.panelManager.closePanel(this);
+        })));
         utils.setVerticalCenter(this.titleNode);
       },
 
+      createFoldableBtn: function() {
+        this.foldableNode = html.create('div', {
+          'class': 'foldable-btn jimu-vcenter jimu-float-trailing'
+        }, this.titleNode);
+
+        this.own(on(this.foldableNode, 'click', lang.hitch(this, function(evt) {
+          evt.stopPropagation();
+          this.onTitleClick();
+        })));
+      },
 
       createFrame: function(widgetConfig) {
         var frame;
@@ -286,25 +284,28 @@ define(['dojo/_base/declare',
           this.folded = false;
           html.setStyle(this.domNode, utils.getPositionStyle(this.getFullPosition()));
 
-          if (this.iframePane) {
-            html.setStyle(this.iframePane.domNode, utils.getPositionStyle(this.getFullPosition()));
-            this.iframePane.resize();
-          }
-
           this.moveTitle();
+          if (isFullWindow()) {
+            html.removeClass(this.foldableNode, 'fold-up');
+            html.addClass(this.foldableNode, 'fold-down');
+          } else {
+            html.addClass(this.foldableNode, 'fold-up');
+            html.removeClass(this.foldableNode, 'fold-down');
+          }
         } else {
           this.folded = true;
           ch = 0;
           html.setStyle(this.domNode, {
             height: this.titleHeight + 'px'
           });
-          if (this.iframePane) {
-            html.setStyle(this.iframePane.domNode, {
-              height: this.titleHeight + 'px'
-            });
-            this.iframePane.resize();
-          }
           this.moveTitle();
+          if (isFullWindow()) {
+            html.removeClass(this.foldableNode, 'fold-down');
+            html.addClass(this.foldableNode, 'fold-up');
+          } else {
+            html.addClass(this.foldableNode, 'fold-down');
+            html.removeClass(this.foldableNode, 'fold-up');
+          }
         }
 
         this.onFoldStateChanged();

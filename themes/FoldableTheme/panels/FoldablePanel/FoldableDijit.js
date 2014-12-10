@@ -15,51 +15,52 @@
 ///////////////////////////////////////////////////////////////////////////
 
 define(['dojo/_base/declare',
-  'dojo/_base/lang',
-  'dojo/_base/html',
-  'dojo/on',
-  'dijit/_WidgetBase',
-  'dijit/_TemplatedMixin'
-],
-function(declare, lang, html, on, _WidgetBase, _TemplatedMixin) {
-  //by default, the dijit will be displayed at 100px height, 100% width.
-  //width height can be customized, value can be px or %
-  return declare([_WidgetBase, _TemplatedMixin], {
-    baseClass: 'jimu-foldable-dijit',
-    width: '100%',
-    titleHeight: 20,
-    content: null,//content is a dijit
-    folded: false,
-    templateString: '<div>' +
-      '<div class="title" data-dojo-attach-point="titleNode">' +
-      '<div class="title-label jimu-vcenter-text" data-dojo-attach-point="titleLabelNode"></div>'+ '</div>'+
-      '<div class="jimu-container" data-dojo-attach-point="containerNode"></div>'+
-      '</div>',
+    'dojo/_base/lang',
+    'dojo/_base/html',
+    'dojo/on',
+    'dijit/_WidgetBase',
+    'dijit/_TemplatedMixin'
+  ],
+  function(declare, lang, html, on, _WidgetBase, _TemplatedMixin) {
+    //by default, the dijit will be displayed at 100px height, 100% width.
+    //width height can be customized, value can be px or %
+    return declare([_WidgetBase, _TemplatedMixin], {
+      baseClass: 'jimu-foldable-dijit',
+      width: '100%',
+      titleHeight: 20,
+      content: null, //content is a dijit
+      folded: false,
+      templateString: '<div>' +
+        '<div class="title" data-dojo-attach-point="titleNode">' +
+        '<div class="title-label jimu-float-leading jimu-leading-margin1 jimu-vcenter-text"' +
+        'data-dojo-attach-point="titleLabelNode"></div>' + '</div>' +
+        '<div class="jimu-container" data-dojo-attach-point="containerNode"></div>' +
+        '</div>',
 
-    startup: function(){
-      this.inherited(arguments);
-      this.bindEvent();
+      startup: function() {
+        this.inherited(arguments);
+        this.bindEvent();
 
-      html.setStyle(this.titleNode, {
-        width: this.width,
-        height: this.titleHeight + 'px'
-      });
-      html.setStyle(this.containerNode, {
-        top: this.titleHeight + 'px'
-      });
+        html.setStyle(this.titleNode, {
+          width: this.width,
+          height: this.titleHeight + 'px'
+        });
+        html.setStyle(this.containerNode, {
+          top: this.titleHeight + 'px'
+        });
 
-      if(this.label){
-        this.setTitleLabel(this.label);
+        if (this.label) {
+          this.setTitleLabel(this.label);
+        }
+      },
+
+      bindEvent: function() {
+        on(this.titleNode, 'click', lang.hitch(this, this.onTitleClick));
+      },
+
+      setTitleLabel: function(label) {
+        this.label = label;
+        this.titleLabelNode.innerHTML = label;
       }
-    },
-
-    bindEvent: function(){
-      on(this.titleNode, 'click', lang.hitch(this, this.onTitleClick));
-    },
-
-    setTitleLabel: function(label){
-      this.label = label;
-      this.titleLabelNode.innerHTML = label;
-    }
+    });
   });
-});

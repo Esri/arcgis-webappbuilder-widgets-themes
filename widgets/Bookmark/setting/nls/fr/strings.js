@@ -1,9 +1,16 @@
-﻿define({
-
-    placeholderBookmarkName: "æ_Bookmark Name_Â",
-    ok: "æ_Ok_Â",
-    errorNameExist: "æ_Bookmark exists!_Â",
-    errorNameNull: "æ_Invalid bookmark name!_Â",
-    addBookmark: "æ_Create a New Bookmark_Â"
-
-});
+﻿define(
+   ({
+    add: "Cliquez pour ajouter un nouveau géosignet",
+    title: "Titre",
+    placeholderBookmarkName: "Nom du géosignet",
+    ok: "OK",
+    cancel: "Annuler",
+    warning: "Terminez la modification !",
+    edit: "Modifier le géosignet",
+    errorNameExist: "Le géosignet existe !",
+    errorNameNull: "Nom de géosignet non valide !",
+    addBookmark: "Créer un géosignet",
+    thumbnail: "Miniature",
+    thumbnailHint: "Cliquez sur l’image pour la modifier"
+  })
+);

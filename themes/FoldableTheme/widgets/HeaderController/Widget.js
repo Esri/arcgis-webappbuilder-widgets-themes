@@ -62,6 +62,7 @@ define([
 
       //the opened group/widget's id
       openedId: '',
+      _lastOpenId: '',
 
       postCreate: function() {
         this.inherited(arguments);
@@ -82,9 +83,14 @@ define([
         //   html.setStyle(this.signInSectionNode, 'display', '');
         // }
 
-        html.setAttr(this.logoNode, 'src', this.appConfig.logo ? this.appConfig.logo : this.folderUrl + 'images/app-logo.png');
+        html.setAttr(
+          this.logoNode,
+          'src',
+          this.appConfig.logo ? this.appConfig.logo : this.folderUrl + 'images/app-logo.png'
+        );
         this.switchableElements.title.innerHTML = this.appConfig.title ? this.appConfig.title : '';
-        this.switchableElements.subtitle.innerHTML = this.appConfig.subtitle ? this.appConfig.subtitle : '';
+        this.switchableElements.subtitle.innerHTML = this.appConfig.subtitle ?
+          this.appConfig.subtitle : '';
 
         this._createDynamicLinks(this.appConfig.links);
         if (this.appConfig.about) {
@@ -113,8 +119,8 @@ define([
 
       startup: function() {
         this.inherited(arguments);
-
-        this.timeoutHandle = setTimeout(lang.hitch(this, this.resize), 100);
+        this.resize();
+        // this.timeoutHandle = setTimeout(lang.hitch(this, this.resize), 100);
       },
 
       onAction: function(action, data) {
@@ -147,7 +153,6 @@ define([
           query('a', this.popupUserNameNode).html(credential.userId)
             .attr('href', this.appConfig.portalUrl + 'home/user.html');
         }
-
         this.resize();
       },
 
@@ -188,8 +193,24 @@ define([
       },
 
       resize: function() {
+        var headerNodeFloat = html.getStyle(this.headerNode, 'float');
+        var logoNodeFloat = html.getStyle(this.logoNode, 'float');
+        var titlesNodeFloat = html.getStyle(this.titlesNode, 'float');
+        var linksNodeFloat = html.getStyle(this.linksNode, 'float');
+        var allHasFloatStyle = (headerNodeFloat && headerNodeFloat !== 'none') &&
+          (logoNodeFloat && logoNodeFloat !== 'none') &&
+          (titlesNodeFloat && titlesNodeFloat !== 'none') &&
+          (linksNodeFloat && linksNodeFloat !== 'none');
+        
+        if (allHasFloatStyle) {
+          this._resize();
+        } else {
+          setTimeout(lang.hitch(this, this.resize), 200);
+        }
+      },
+
+      _resize: function() {
         var box = html.getContentBox(this.domNode);
-        // console.log('header width:', box.w);
 
         //by default, we show all elements
         this._showSwitchableElements(['title', 'links', 'subtitle']);
@@ -290,7 +311,8 @@ define([
         if (changedData.title !== undefined && changedData.title !== this.appConfig.title) {
           this.titleNode.innerHTML = changedData.title;
         }
-        if (changedData.subtitle !== undefined && changedData.subtitle !== this.appConfig.subtitle) {
+        if (changedData.subtitle !== undefined &&
+          changedData.subtitle !== this.appConfig.subtitle) {
           this.subtitleNode.innerHTML = changedData.subtitle;
         }
         if (changedData.logo) {
@@ -337,13 +359,20 @@ define([
       },
 
       _createDynamicLinks: function(links) {
+        if (window.isRTL){
+          var _links = [];
+          array.forEach(links, function(link){
+            _links.unshift(link);
+          });
+          links = _links;
+        }
         html.empty(this.dynamicLinksNode);
         array.forEach(links, function(link) {
           html.create('a', {
             href: link.url,
             target: '_blank',
             innerHTML: link.label,
-            'class': "link",
+            'class': "link jimu-align-leading jimu-leading-margin1",
             style: {
               lineHeight: this.height + 'px'
             }
@@ -372,9 +401,9 @@ define([
 
         if (showElement.indexOf('links') < 0) {
           this.logoClickHandle = on(this.logoNode, 'click', lang.hitch(this, this._onLogoClick));
-          html.setStyle(this.logoNode, {
-            cursor: 'pointer'
-          });
+          // html.setStyle(this.logoNode, {
+          //   cursor: 'pointer'
+          // });
         } else {
           if (this.popupLinksVisible) {
             this._hidePopupLink();
@@ -395,32 +424,50 @@ define([
       },
 
       _onLogoClick: function() {
-        if (!this.popupLinkNode) {
-          this.popupLinkNode = this._createPopupLinkNode();
-          this._switchSignin();
+        // return;
+        if (this.popupLinkNode) {
+          html.destroy(this.popupLinkNode);
+          // this._switchSignin();
         }
+        this.popupLinkNode = this._createPopupLinkNode();
 
         if (this.popupLinksVisible) {
-          this.popupLinksVisible = false;
           this._hidePopupLink();
         } else {
-          this.popupLinksVisible = true;
           this._showPopupLink();
         }
       },
 
       _hidePopupLink: function() {
         html.setStyle(this.popupLinkNode, 'display', 'none');
-        html.setStyle(jimuConfig.layoutId, {
-          left: 0
-        });
+
+        if (window.isRTL) {
+          html.setStyle(jimuConfig.layoutId, {
+            right: 0
+          });
+        } else {
+          html.setStyle(jimuConfig.layoutId, {
+            left: 0
+          });
+        }
+
+        this.popupLinksVisible = false;
       },
 
       _showPopupLink: function() {
         html.setStyle(this.popupLinkNode, 'display', '');
-        html.setStyle(jimuConfig.layoutId, {
-          left: html.getContentBox(this.popupLinkNode).w + 'px'
-        });
+
+        if (window.isRTL) {
+          html.setStyle(jimuConfig.layoutId, {
+            right: html.getContentBox(this.popupLinkNode).w + 'px'
+          });
+        } else {
+          html.setStyle(jimuConfig.layoutId, {
+            left: html.getContentBox(this.popupLinkNode).w + 'px'
+          });
+        }
+
+        this.popupLinksVisible = true;
       },
 
       _createPopupLinkNode: function() {
@@ -432,12 +479,22 @@ define([
           style: {
             position: 'absolute',
             zIndex: 100,
-            left: 0,
             top: 0,
-            bottom: 0,
-            right: '50px'
+            bottom: 0
           }
         }, jimuConfig.mainPageId);
+
+        if (window.isRTL) {
+          html.setStyle(node, {
+            right: 0,
+            left: '50px'
+          });
+        } else {
+          html.setStyle(node, {
+            left: 0,
+            right: '50px'
+          });
+        }
 
         titleNode = html.create('div', {
           'class': 'popup-title',
@@ -448,7 +505,7 @@ define([
         }, node);
 
         html.create('img', {
-          'class': 'logo',
+          'class': 'logo jimu-float-leading jimu-leading-margin1',
           src: this.appConfig.logo ? this.appConfig.logo : this.folderUrl + 'images/app-logo.png',
           style: {
             width: '30px',
@@ -458,7 +515,7 @@ define([
         }, titleNode);
 
         html.create('div', {
-          'class': 'title',
+          'class': 'title jimu-float-leading jimu-leading-margin1',
           innerHTML: this.appConfig.title,
           style: {
             lineHeight: this.height + 'px'
@@ -469,21 +526,21 @@ define([
           this._createLinkNode(node, link, false);
         }, this);
 
-        this.popupSigninNode = this._createLinkNode(node, {
-          label: 'SignIn',
-          url: '#'
-        }, true);
-        this.popupUserNameNode = this._createLinkNode(node, {
-          label: '',
-          url: '#'
-        }, true);
-        this.popupSignoutNode = this._createLinkNode(node, {
-          label: 'SignOut',
-          url: '#'
-        }, true);
+        // this.popupSigninNode = this._createLinkNode(node, {
+        //   label: 'SignIn',
+        //   url: '#'
+        // }, true);
+        // this.popupUserNameNode = this._createLinkNode(node, {
+        //   label: '',
+        //   url: '#'
+        // }, true);
+        // this.popupSignoutNode = this._createLinkNode(node, {
+        //   label: 'SignOut',
+        //   url: '#'
+        // }, true);
 
-        this.own(on(this.popupSigninNode, 'click', lang.hitch(this, '_onSigninClick')));
-        this.own(on(this.popupSignoutNode, 'click', lang.hitch(this, '_onSignoutClick')));
+        // this.own(on(this.popupSigninNode, 'click', lang.hitch(this, '_onSigninClick')));
+        // this.own(on(this.popupSignoutNode, 'click', lang.hitch(this, '_onSignoutClick')));
 
         //empty
         this._createLinkNode(node, {
@@ -509,6 +566,7 @@ define([
           href: link.url,
           target: '_blank',
           innerHTML: link.label,
+          title: link.label,
           style: {
             lineHeight: '66px'
           }
@@ -525,7 +583,8 @@ define([
         var isDepolyedApp = !this.appConfig.mode;
 
         if (isDepolyedApp) {
-          tokenUtils.signOutPortal(this.appConfig.portalUrl);
+          //tokenUtils.signOutPortal(this.appConfig.portalUrl);
+          tokenUtils.signOutAll();
         } else {
           new Message({
             message: this.nls.cantSignOutTip
@@ -552,7 +611,6 @@ define([
       _getHeaderSectionWidth: function() {
         var width;
         width = html.getMarginBox(this.headerNode).w;
-        // console.log('header width: ' + width, ', float: ' + html.getStyle(this.headerNode, 'float'));
         return width;
       },
 
@@ -560,6 +618,7 @@ define([
         var headSectionWidth = this._getHeaderSectionWidth();
         //the container width
         var containerWidth = box.w - headSectionWidth - this._getEmptyWidth(box);
+
         return containerWidth;
       },
 
@@ -577,12 +636,16 @@ define([
               //hiden the title, subtitle, links
               this._showSwitchableElements([]);
               containerWidth = this._getContainerWidth(box);
+
               if (containerWidth < this.iconWidth * 2) {
-                //all of the elements is hidden, but the it's still can hold two icons(too small screen???),
+                //all of the elements is hidden,
+                // but the it's still can hold two icons(too small screen???),
                 //use the empty space
                 //the emptyWidth may be negative
+
                 emptyWidth = emptyWidth - (this.iconWidth * 2 - containerWidth);
                 containerWidth = this.iconWidth * 2;
+                this._getContainerWidth(box);
               }
             }
           } else {
@@ -590,7 +653,8 @@ define([
             this._showSwitchableElements([]);
             containerWidth = this._getContainerWidth(box);
             if (containerWidth < this.iconWidth * 2) {
-              //all of the elements is hidden, but the it's still can hold two icons(too small screen???),
+              //all of the elements is hidden,
+              // but the it's still can hold two icons(too small screen???),
               //use the empty space
               //the emptyWidth may be negative
               emptyWidth = emptyWidth - (this.iconWidth * 2 - containerWidth);
@@ -619,10 +683,13 @@ define([
 
         var ret = this._calcContainerAndEmptyWidth(box);
 
-        html.setStyle(this.containerNode, {
-          width: ret.containerWidth + 'px',
-          marginLeft: (ret.emptyWidth - 5) + 'px' //add some margein to avoid mess layout
-        });
+        var marginProperty = window.isRTL ? 'marginRight' : 'marginLeft';
+        var containerStyle = {
+          width: ret.containerWidth + 'px'
+        };
+        //add some margein to avoid mess layout
+        containerStyle[marginProperty] = (ret.emptyWidth - 5) + 'px';
+        html.setStyle(this.containerNode, containerStyle);
 
         this.maxIconCount = Math.floor(ret.containerWidth / this.iconWidth);
         if (this.maxIconCount >= allIconConfigs.length) {
@@ -664,7 +731,7 @@ define([
         }
 
         node = html.create('div', {
-          'class': 'icon-node',
+          'class': 'icon-node jimu-float-trailing',
           title: iconConfig.label,
           settingId: iconConfig.id,
           style: {
@@ -692,14 +759,16 @@ define([
         //   this.openedId = iconConfig.id;
         //   this._switchNodeToOpen(this.openedId);
         // }
-        if (node.config.widgets && node.config.widgets.length > 1 && node.config.openType === 'dropDown') {
+        if (node.config.widgets && node.config.widgets.length > 1 &&
+          node.config.openType === 'dropDown') {
           this._createDropTriangle(node);
         }
 
         //set current open node
         if (this.openedId === iconConfig.id) {
           html.addClass(node, 'jimu-state-selected');
-          if (node.config.widgets && node.config.widgets.length > 1 && node.config.openType === 'dropDown') {
+          if (node.config.widgets && node.config.widgets.length > 1 &&
+            node.config.openType === 'dropDown') {
             this._openDropMenu(node);
           }
         }
@@ -718,9 +787,15 @@ define([
       },
 
       _onIconClick: function(node) {
-        if (!node.config.widgets || node.config.widgets.length === 1 || node.config.openType === 'openAll') {
+        if (this.openedId) {
+          this._lastOpenId = this.openedId;
+        }
+
+        if (!node.config.widgets || node.config.widgets.length === 1 ||
+          node.config.openType === 'openAll') {
           //widget or group with 'openAll' open type
           if (this.openedId && this.openedId === node.config.id) {
+            this._switchNodeToClose(this._lastOpenId);
             return;
           } else {
             if (this.openedId) {
@@ -738,6 +813,7 @@ define([
             this._closeDropMenu();
           } else {
             this.openedId = node.config.id;
+            this._closeDropMenu();
             this._openDropMenu(node);
           }
         }
@@ -783,17 +859,20 @@ define([
         }, this.dropMenuNode);
 
         html.create('img', {
+          'class': 'jimu-float-leading',
           src: sconfig.icon
         }, node);
 
         html.create('div', {
-          'class': 'label',
+          'class': 'label jimu-float-leading',
           innerHTML: sconfig.label
         }, node);
 
         this.own(on(node, 'click', lang.hitch(this, function() {
           this._closeDropMenu();
-          this._showIconContent(node.config);
+          this._switchNodeToClose(this._lastOpenId).then(lang.hitch(this, function() {
+            this._showIconContent(node.config);
+          }));
         })));
         node.config = sconfig;
         return node;
@@ -802,9 +881,15 @@ define([
       _setDropMenuPosition: function(pnode) {
         var position = {},
           box = html.getMarginBox(pnode),
-          thisBox = html.getMarginBox(this.domNode);
-        position.right = thisBox.w - box.l - box.w;
+          thisBox = html.getMarginBox(this.domNode),
+          right = thisBox.w - box.l - box.w;
         position.top = this.height + 1;
+
+        if (window.isRTL){
+          position.right = thisBox.w - right - box.w;
+        }else {
+          position.right = right;
+        }
         html.setStyle(this.dropMenuNode, utils.getPositionStyle(position));
       },
 
@@ -830,7 +915,8 @@ define([
       },
 
       _onPanelClose: function(id) {
-        query('.icon-node[settingId="' + id + '"]', this.domNode).removeClass('jimu-state-selected');
+        query('.icon-node[settingId="' + id + '"]', this.domNode)
+          .removeClass('jimu-state-selected');
         this.openedId = '';
       },
 

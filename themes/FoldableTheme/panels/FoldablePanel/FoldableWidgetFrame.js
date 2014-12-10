@@ -54,7 +54,7 @@ define(['dojo/_base/declare',
 
     createFoldBtn: function(){
       this.foldNode = html.create('div', {
-        'class': 'fold-btn'
+        'class': 'fold-btn jimu-float-trailing'
       }, this.titleNode);
     },
 

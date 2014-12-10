@@ -25,11 +25,12 @@ define([
   'dojo/string',
   'esri/SpatialReference',
   './ImageNode',
-  'jimu/dijit/TileLayoutContainer'
+  'jimu/dijit/TileLayoutContainer',
+  'jimu/utils',
+  'libs/storejs/store'
 ],
 function(declare, lang, array, html, BaseWidget, on, aspect, string,
-  SpatialReference, ImageNode, TileLayoutContainer) {
-  /* global store */
+  SpatialReference, ImageNode, TileLayoutContainer, utils, store) {
   return declare([BaseWidget], {
     //these two properties is defined in the BaseWidget
     baseClass: 'jimu-widget-bookmark',
@@ -120,6 +121,9 @@ function(declare, lang, array, html, BaseWidget, on, aspect, string,
     },
 
     resize: function(){
+      var box = html.getMarginBox(this.domNode);
+      var listHeight = box.h - 37 - 21 - 61;
+      html.setStyle(this.bookmarkListNode, 'height', listHeight + 'px');
       if(this.bookmarkList){
         this.bookmarkList.resize();
       }
@@ -146,13 +150,22 @@ function(declare, lang, array, html, BaseWidget, on, aspect, string,
     },
 
     _readBookmarksInWebmap: function(){
-      if(!this.map.itemInfo || !this.map.itemInfo.itemData || !this.map.itemInfo.itemData.bookmarks){
+      if(!this.map.itemInfo || !this.map.itemInfo.itemData ||
+        !this.map.itemInfo.itemData.bookmarks){
         return;
       }
       array.forEach(this.map.itemInfo.itemData.bookmarks, function(bookmark){
         bookmark.isInWebmap = true;
-        bookmark.name = bookmark.name + ' (from webmap)';
-        this.bookmarks.push(bookmark);
+        bookmark.name = bookmark.name;
+        var repeat = 0;
+        for (var i = 0; i <this.bookmarks.length; i++ ){
+          if (this.bookmarks[i].name === bookmark.name){
+            repeat ++;
+          }
+        }
+        if (!repeat){
+          this.bookmarks.push(bookmark);
+        }
       }, this);
     },
 
@@ -188,10 +201,8 @@ function(declare, lang, array, html, BaseWidget, on, aspect, string,
     _createBookMarkNode: function(bookmark) {
       var thumbnail, node;
 
-      if(bookmark.thumbnail && bookmark.thumbnail.startWith('data:')){
-        thumbnail = bookmark.thumbnail;
-      }else if(bookmark.thumbnail){
-        thumbnail = this.folderUrl + bookmark.thumbnail;
+      if(bookmark.thumbnail){
+        thumbnail = utils.processUrlInWidgetConfig(bookmark.thumbnail, this.folderUrl);
       }else{
         thumbnail = this.folderUrl + 'images/thumbnail_default.png';
       }
@@ -262,7 +273,8 @@ function(declare, lang, array, html, BaseWidget, on, aspect, string,
       }
       this.currentIndex ++;
       this.bookmarkList.items[this.currentIndex].highLight();
-      setTimeout(lang.hitch(this, this._setCamera, this.bookmarks[this.currentIndex]), this.config.stopTime);
+      setTimeout(lang.hitch(this, this._setCamera, this.bookmarks[this.currentIndex]),
+        this.config.stopTime);
     },
 
     _onFlytoBreak: function(){

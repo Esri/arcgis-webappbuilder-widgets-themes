@@ -1,5 +1,10 @@
 @import url("../common.css");
 
+.jimu-widget-bookmark{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
 .jimu-widget-bookmark .add-section{
   position: relative; 
   height: 30px; 
@@ -50,4 +55,9 @@
 
 .FoldableTheme.cyan .jimu-widget-bookmark .btn-add{
   background-color: #d5d5d4;
+}
+
+.jimu-rtl .jimu-widget-bookmark .btn-add{
+  left: 1px;
+  right: auto;
 }

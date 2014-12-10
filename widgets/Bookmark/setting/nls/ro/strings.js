@@ -1,9 +1,16 @@
-﻿define({
-
-    placeholderBookmarkName: "Ă_Bookmark Name_ș",
-    ok: "Ă_Ok_ș",
-    errorNameExist: "Ă_Bookmark exists!_ș",
-    errorNameNull: "Ă_Invalid bookmark name!_ș",
-    addBookmark: "Ă_Create a New Bookmark_ș"
-
-});
+﻿define(
+   ({
+    add: "Faceţi clic pe Adăugare semn de carte nou",
+    title: "Titlu",
+    placeholderBookmarkName: "Nume marcaj",
+    ok: "OK",
+    cancel: "Anulare",
+    warning: "Finalizaţi editarea!",
+    edit: "Editare semn de carte",
+    errorNameExist: "Marcajul există!",
+    errorNameNull: "Nume marcaj nevalid!",
+    addBookmark: "Creare marcaj nou",
+    thumbnail: "Miniatură",
+    thumbnailHint: "Pentru actualizare, faceţi clic pe imagine"
+  })
+);

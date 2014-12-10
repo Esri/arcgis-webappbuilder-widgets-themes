@@ -1,9 +1,16 @@
-﻿define({
-
-    placeholderBookmarkName: "כן_Bookmark Name_ש",
-    ok: "כן_Ok_ש",
-    errorNameExist: "כן_Bookmark exists!_ש",
-    errorNameNull: "כן_Invalid bookmark name!_ש",
-    addBookmark: "כן_Create a New Bookmark_ש"
-
-});
+﻿define(
+   ({
+    add: "לחץ להוספת סימניה חדשה",
+    title: "כותרת",
+    placeholderBookmarkName: "שם סימניה",
+    ok: "אישור",
+    cancel: "ביטול",
+    warning: "סיים בקשה את העריכה!",
+    edit: "ערוך סימניה",
+    errorNameExist: "סימניה קיימת!",
+    errorNameNull: "שם סימניה לא חוקי!",
+    addBookmark: "צור סימניה חדשה",
+    thumbnail: "תמונה ממוזערת",
+    thumbnailHint: "לחץ על תמונה לעדכון"
+  })
+);

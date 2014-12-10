@@ -1,9 +1,12 @@
-﻿define({
-    labelBookmarkName: "ก้_Bookmark the current view_ษฺ",
-    labelPlay: "ก้_Play All_ษฺ",
-    labelStop: "ก้_Stop_ษฺ",
-    labelDelete: "ก้_Delete_ษฺ",
-    placeholderBookmarkName: "ก้_Bookmark Name_ษฺ",
-    errorNameExist: "ก้_Bookmark exists!_ษฺ",
-    errorNameNull: "ก้_Invalid bookmark name!_ษฺ"
-});
+﻿define(
+   ({
+    labelBookmarkName: "สร้างบุคมาร์คในมุมมองปัจจุบัน",
+    labelPlay: "เล่นทั้งหมด",
+    labelStop: "หยุด",
+    labelDelete: "ลบทิ้ง",
+    placeholderBookmarkName: "ตั้งชื่อบุคมาร์ค",
+    errorNameExist: "บุคมาร์คมีอยู่แล้ว!",
+    errorNameNull: "ชื่อบุคมาร์คไม่ถูกต้อง!",
+    _widgetLabel: "ที่คั่น"
+  })
+);

@@ -32,11 +32,12 @@ define([
   'jimu/BaseWidgetSetting',
   'jimu/dijit/Popup',
   'jimu/dijit/Message',
-  './Edit'
+  'jimu/utils',
+  './Edit',
+  'libs/storejs/store'
 ],
-function(declare, _WidgetsInTemplateMixin, lang, array, html, on, keys, domStyle, domAttr, query, mouse, aspect, string,
-   Extent, BaseWidgetSetting, Popup, Message, Edit) {
-  /* global store */
+function(declare, _WidgetsInTemplateMixin, lang, array, html, on, keys, domStyle, domAttr, query,
+  mouse, aspect, string, Extent, BaseWidgetSetting, Popup, Message, utils, Edit, store) {
   //for now, this setting page suports 2D mark only
   return declare([BaseWidgetSetting,_WidgetsInTemplateMixin], {
     //these two properties is defined in the BaseWidget
@@ -58,6 +59,25 @@ function(declare, _WidgetsInTemplateMixin, lang, array, html, on, keys, domStyle
     setConfig: function(config){
       this.config = config;
       this.bookmarks = this.config.bookmarks2D;
+      //add webmap bookmarks
+      if(this.map.itemInfo && this.map.itemInfo.itemData && this.map.itemInfo.itemData.bookmarks){
+        array.forEach(this.map.itemInfo.itemData.bookmarks, function(bookmark){
+          bookmark.isInWebmap = true;
+          bookmark.name = bookmark.name;
+          // if (array.indexOf(this.bookmarks, bookmark) === -1){
+          //   this.bookmarks.push(bookmark);
+          // }
+          var repeat = 0;
+          for (var i = 0; i <this.bookmarks.length; i++ ){
+            if (this.bookmarks[i].name === bookmark.name){
+              repeat ++;
+            }
+          }
+          if (!repeat){
+            this.bookmarks.push(bookmark);
+          }
+        }, this);
+      }
       this.currentBookmark = null;
       this.displayBookmarks();
     },
@@ -107,7 +127,11 @@ function(declare, _WidgetsInTemplateMixin, lang, array, html, on, keys, domStyle
 
     onAddBookmarkClick: function(){
         this.popupState = "ADD";
-        this._openEdit(this.nls.addBookmark, {});
+        this._openEdit(this.nls.addBookmark, {
+          name: '',
+          thumbnail: '',
+          extent: this.map.extent.toJson()
+        });
       },
 
     getBookmarkByName: function(name){
@@ -131,7 +155,7 @@ function(declare, _WidgetsInTemplateMixin, lang, array, html, on, keys, domStyle
         this.edit = new Edit({
           nls: this.nls,
           folderUrl: this.folderUrl,
-          portalUrl : this.appConfig.portalUrl,
+          portalUrl : this.appConfig.map.portalUrl,
           itemId: this.appConfig.map.itemId
         });
         this.edit.setConfig(bookmark || {});
@@ -161,7 +185,7 @@ function(declare, _WidgetsInTemplateMixin, lang, array, html, on, keys, domStyle
     _onEditOk: function() {
         var bookmark = this.edit.getConfig();
         var editResult = null;
-        if (!bookmark.name || !bookmark.thumbnail || !bookmark.extent) {
+        if (!bookmark.name || !bookmark.extent) {
           new Message({
             message: this.nls.warning
           });
@@ -205,7 +229,11 @@ function(declare, _WidgetsInTemplateMixin, lang, array, html, on, keys, domStyle
     },
 
     _createmarkItem: function(bookmark) {
-      var str = "<div class='mark-item-div'>" + "<div class='mark-item-bg'>" + "<div class='mark-item-thumbnail'></div>"+ "<div class='mark-item-delete-icon'></div>" + "<div class='mark-item-detail-icon'></div>" + "<span class='mark-item-title'></span>" + "</div>";
+      var str = "<div class='mark-item-div jimu-float-leading jimu-leading-margin1'>" +
+      "<div class='mark-item-bg'>" +
+      "<div class='mark-item-thumbnail'></div>" + "<div class='mark-item-delete-icon'></div>" +
+      "<div class='mark-item-detail-icon'></div>" + "<span class='mark-item-title'></span>" +
+      "</div>";
       var markItem = html.toDom(str);
       var markItemBg = query('.mark-item-bg', markItem)[0];
       var markItemThumbnail = query('.mark-item-thumbnail', markItem)[0];
@@ -216,16 +244,16 @@ function(declare, _WidgetsInTemplateMixin, lang, array, html, on, keys, domStyle
       this.own(on(markItemEditIcon, 'click', lang.hitch(this, this._onmarkItemEditClick)));
       markItem.item = bookmark;
       var thumbnail;
-      if(bookmark.thumbnail && bookmark.thumbnail.startWith('data:')){
-        thumbnail = bookmark.thumbnail;
-      }else if(bookmark.thumbnail){
-        thumbnail = this.folderUrl + bookmark.thumbnail;
+
+      if(bookmark.thumbnail){
+        thumbnail = utils.processUrlInWidgetConfig(bookmark.thumbnail, this.folderUrl);
       }else{
         thumbnail = this.folderUrl + 'images/thumbnail_default.png';
       }
       html.setStyle(markItemThumbnail, 'backgroundImage', "url(" + thumbnail + ")");
       this.own(on(markItemBg, 'click', lang.hitch(this, this._onmarkItemBgClick)));
       markItemTitle.innerHTML = bookmark.name;
+      html.setAttr(markItemTitle, 'title', bookmark.name);
       return markItem;
     },
 

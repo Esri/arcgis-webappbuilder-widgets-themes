@@ -1,9 +1,12 @@
-﻿define({
-    labelBookmarkName: "á_Bookmark the current view_Ó",
-    labelPlay: "á_Play All_Ó",
-    labelStop: "á_Stop_Ó",
-    labelDelete: "á_Delete_Ó",
-    placeholderBookmarkName: "á_Bookmark Name_Ó",
-    errorNameExist: "á_Bookmark exists!_Ó",
-    errorNameNull: "á_Invalid bookmark name!_Ó"
-});
+﻿define(
+   ({
+    labelBookmarkName: "Agregar la vista actual a marcadores",
+    labelPlay: "Reproducir todo",
+    labelStop: "Detener",
+    labelDelete: "Eliminar",
+    placeholderBookmarkName: "Nombre del marcador",
+    errorNameExist: "¡El marcador ya existe!",
+    errorNameNull: "¡Nombre del marcador no válido!",
+    _widgetLabel: "Marcador"
+  })
+);

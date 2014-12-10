@@ -1,9 +1,16 @@
-﻿define({
-
-    placeholderBookmarkName: "ä_Bookmark Name_Ü",
-    ok: "ä_Ok_Ü",
-    errorNameExist: "ä_Bookmark exists!_Ü",
-    errorNameNull: "ä_Invalid bookmark name!_Ü",
-    addBookmark: "ä_Create a New Bookmark_Ü"
-
-});
+﻿define(
+   ({
+    add: "Zum Hinzufügen eines neuen Lesezeichens klicken",
+    title: "Titel",
+    placeholderBookmarkName: "Lesezeichenname",
+    ok: "OK",
+    cancel: "Abbrechen",
+    warning: "Beenden Sie die Bearbeitung!",
+    edit: "Lesezeichen bearbeiten",
+    errorNameExist: "Lesezeichen ist vorhanden!",
+    errorNameNull: "Ungültiger Lesezeichenname!",
+    addBookmark: "Neues Lesezeichen erstellen",
+    thumbnail: "Miniaturansicht",
+    thumbnailHint: "Zum Aktualisieren auf Bild klicken"
+  })
+);

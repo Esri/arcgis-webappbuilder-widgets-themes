@@ -1,9 +1,12 @@
-﻿define({
-    labelBookmarkName: "æ_Bookmark the current view_Â",
-    labelPlay: "æ_Play All_Â",
-    labelStop: "æ_Stop_Â",
-    labelDelete: "æ_Delete_Â",
-    placeholderBookmarkName: "æ_Bookmark Name_Â",
-    errorNameExist: "æ_Bookmark exists!_Â",
-    errorNameNull: "æ_Invalid bookmark name!_Â"
-});
+﻿define(
+   ({
+    labelBookmarkName: "Créer un géosignet pour la vue courante",
+    labelPlay: "Lire tout",
+    labelStop: "Arrêter",
+    labelDelete: "Supprimer",
+    placeholderBookmarkName: "Nom du géosignet",
+    errorNameExist: "Le géosignet existe !",
+    errorNameNull: "Nom de géosignet non valide !",
+    _widgetLabel: "Géosignet"
+  })
+);

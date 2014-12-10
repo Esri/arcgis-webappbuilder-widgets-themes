@@ -1,6 +1,21 @@
 .jimu-main-bgcolor{
   background-color: black;
 }
+.jimu-widget-header-controller .jimu-drop-menu{
+  background-color: black;
+}
+.jimu-header-more-popup {
+  background-color: #435063;
+}
+.jimu-header-more-popup .icon-node {
+  background-color: black;
+}
+.jimu-header-more-popup .close {
+  background-color: #435063;
+}
+.jimu-header-more-popup .close-inner {
+  background-color: black;
+}
 .jimu-btn{
   color: #fff;
 
@@ -26,8 +41,9 @@
   background: #d9dde0; /* Old browsers */
   color: #fff;
 }
-
-.jimu-foldable-panel .title, .jimu-title-panel .title{
+.jimu-preload-widget-icon-panel>.title,
+.jimu-foldable-panel>.title,
+.jimu-title-panel>.title{
   color: white;
   background-color: #000;
 }

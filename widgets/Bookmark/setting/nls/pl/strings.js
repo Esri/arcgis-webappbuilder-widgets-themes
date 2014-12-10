@@ -1,9 +1,16 @@
-﻿define({
-
-    placeholderBookmarkName: "ł_Bookmark Name_ą",
-    ok: "ł_Ok_ą",
-    errorNameExist: "ł_Bookmark exists!_ą",
-    errorNameNull: "ł_Invalid bookmark name!_ą",
-    addBookmark: "ł_Create a New Bookmark_ą"
-
-});
+﻿define(
+   ({
+    add: "Kliknij, aby dodać nową zakładkę",
+    title: "Tytuł",
+    placeholderBookmarkName: "Nazwa zakładki",
+    ok: "OK",
+    cancel: "Anuluj",
+    warning: "Należy zakończyć edycję!",
+    edit: "Edytuj zakładkę",
+    errorNameExist: "Zakładka już istnieje!",
+    errorNameNull: "Nieprawidłowa nazwa zakładki!",
+    addBookmark: "Utwórz nową zakładkę",
+    thumbnail: "Miniatura",
+    thumbnailHint: "Kliknij obraz do zaktualizowania"
+  })
+);

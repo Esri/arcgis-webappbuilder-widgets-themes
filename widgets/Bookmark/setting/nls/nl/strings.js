@@ -1,9 +1,16 @@
-﻿define({
-
-    placeholderBookmarkName: "Ĳ_Bookmark Name_ä",
-    ok: "Ĳ_Ok_ä",
-    errorNameExist: "Ĳ_Bookmark exists!_ä",
-    errorNameNull: "Ĳ_Invalid bookmark name!_ä",
-    addBookmark: "Ĳ_Create a New Bookmark_ä"
-
-});
+﻿define(
+   ({
+    add: "Klik om een nieuwe bladwijzer toe te voegen",
+    title: "Titel",
+    placeholderBookmarkName: "Naam van bladwijzer",
+    ok: "OK",
+    cancel: "Afbreken",
+    warning: "Bewerking voltooien!",
+    edit: "Bladwijzer bewerken",
+    errorNameExist: "Bladwijzer bestaat al.",
+    errorNameNull: "Ongeldige naam van bladwijzer.",
+    addBookmark: "Een nieuwe bladwijzer maken",
+    thumbnail: "Thumbnail",
+    thumbnailHint: "Klik op de afbeelding om deze te bewerken"
+  })
+);

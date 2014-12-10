@@ -1,9 +1,16 @@
-﻿define({
-
-    placeholderBookmarkName: "ã_Bookmark Name_Ç",
-    ok: "ã_Ok_Ç",
-    errorNameExist: "ã_Bookmark exists!_Ç",
-    errorNameNull: "ã_Invalid bookmark name!_Ç",
-    addBookmark: "ã_Create a New Bookmark_Ç"
-
-});
+﻿define(
+   ({
+    add: "Clicar para Adicionar um Novo Marcador",
+    title: "Título",
+    placeholderBookmarkName: "Nome do Marcador",
+    ok: "Ok",
+    cancel: "Cancelar",
+    warning: "Por favor termine a edição!",
+    edit: "Editar marcador",
+    errorNameExist: "O Marcador existe!",
+    errorNameNull: "Nome de marcador inválido!",
+    addBookmark: "Criar um Novo Marcador",
+    thumbnail: "Miniatura",
+    thumbnailHint: "Clique na imagem para atualizar"
+  })
+);

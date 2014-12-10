@@ -17,6 +17,7 @@ define(
     'esri/geometry/Extent',
     'jimu/dijit/ImageChooser',
     'jimu/dijit/ExtentChooser',
+    'jimu/utils',
     "dojo/text!./Edit.html"
   ],
   function(
@@ -38,6 +39,7 @@ define(
     Extent,
     ImageChooser,
     ExtentChooser,
+    utils,
     template
     ){
     return declare([BaseWidgetSetting, _WidgetsInTemplateMixin], {
@@ -51,34 +53,25 @@ define(
       postCreate: function(){
         this.inherited(arguments);
         this.imageChooser = new ImageChooser({
-          displayImg: this.showImageChooser
+          displayImg: this.showImageChooser,
+          goldenWidth: 155,
+          goldenHeight: 95
         });
         this.own(on(this.name, 'Change', lang.hitch(this, '_onNameChange')));
-        html.addClass(this.imageChooser.domNode, 'thumbnail-img');
+        html.addClass(this.imageChooser.domNode, 'img-chooser');
         html.place(this.imageChooser.domNode, this.imageChooserBase, 'replace');
-        this.own(on(this.imageChooser, 'imageChange', lang.hitch(this, this.imageChange)));
-        this.own(on(this.thumbnail, 'change', lang.hitch(this, this.onThumbnailChange)));
         domAttr.set(this.showImageChooser, 'src', this.folderUrl + "images/thumbnail_default.png");
       },
 
       setConfig: function(bookmark){
-        var thumbnail;
-
         if (bookmark.name){
           this.name.set('value', bookmark.name);
         }
         if (bookmark.thumbnail){
-          this.thumbnail.set('value', bookmark.thumbnail);
+          var thumbnailValue = utils.processUrlInWidgetConfig(bookmark.thumbnail, this.folderUrl);
+          html.setAttr(this.showImageChooser, 'src', thumbnailValue);
         }
-        // if(bookmark.thumbnail && bookmark.thumbnail.startWith('data:')){
-        //     thumbnail = bookmark.thumbnail;
-        //   }else if(bookmark.thumbnail){
-        //     thumbnail = this.folderUrl + bookmark.thumbnail;
-        //   }else{
-        //     thumbnail = this.folderUrl + 'images/thumbnail_default.png';
-        //   }
         if (bookmark.extent){
-          //this.extentChooser.setExtent(new Extent(ext));
           this.extentChooser = new ExtentChooser({
             portalUrl : this.portalUrl,
             itemId: this.itemId,
@@ -90,34 +83,19 @@ define(
             itemId: this.itemId
           }, this.extentChooserNode);
         }
-        //this.name.value = bookmark.name;
-        html.setAttr(this.imageChooserBase, 'src', thumbnail);
+
         this.own(on(this.extentChooser, 'extentChange', lang.hitch(this, this._onExtentChange)));
-        // this.currentBookmark = bookmark;
       },
 
       getConfig: function(){
         var bookmark = {
           name: this.name.get("value"),
           extent: this.extentChooser.getExtent(),
-          thumbnail: this.thumbnail.get("value")
+          thumbnail: this.showImageChooser.src
         };
         return bookmark;
       },
-
-      onThumbnailChange: function(){
-        var value = this.thumbnail.get('value');
-        if (value.indexOf('data:image') > -1){
-          domAttr.set(this.showImageChooser, 'src', value);
-        }else{
-          domAttr.set(this.showImageChooser, 'src', this.folderUrl + value);
-        }
-      },
-
-      imageChange: function(data){
-        this.thumbnail.set('value', data);
-      },
-
+      
       _onNameChange: function(){
         this._checkRequiredField();
       },

@@ -1,9 +1,16 @@
-﻿define({
-
-    placeholderBookmarkName: "Ř_Bookmark Name_ů",
-    ok: "Ř_Ok_ů",
-    errorNameExist: "Ř_Bookmark exists!_ů",
-    errorNameNull: "Ř_Invalid bookmark name!_ů",
-    addBookmark: "Ř_Create a New Bookmark_ů"
-
-});
+﻿define(
+   ({
+    add: "Kliknutím přidáte novou záložku.",
+    title: "Nadpis",
+    placeholderBookmarkName: "Název záložky",
+    ok: "OK",
+    cancel: "Zrušit",
+    warning: "Dokončete úpravu!",
+    edit: "Upravit záložku",
+    errorNameExist: "Záložka již existuje!",
+    errorNameNull: "Neplatný název záložky!",
+    addBookmark: "Vytvořit novou záložku",
+    thumbnail: "Miniatura",
+    thumbnailHint: "Kliknutím na obrázek jej aktualizujete."
+  })
+);
