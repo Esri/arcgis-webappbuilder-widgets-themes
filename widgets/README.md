@@ -1,4 +1,6 @@
+
 Put custom widgets here. Each widget is a folder which contains all necessary widget elements.
+-----------------------------------------
 
 Widget is described by a manifest file, which is called manifest.json and is put under widget's root folder. This is the description of the file:
 
