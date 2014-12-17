@@ -1,5 +1,7 @@
 Put custom themes here. Each theme is a folder which contains all necessary theme elements.
--------------------------------------
+
+***
+
 Theme is described by a manifest file, which is called manifest.json and is put under theme's root folder. This is an example of the file:
 
 ```
