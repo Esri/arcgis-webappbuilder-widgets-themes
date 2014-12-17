@@ -3,6 +3,7 @@ This folder contains widgets that shared by the community. If you would like to 
 
 ## How to add widgets into Web AppBuilder or a built app
 To add widgets into the builder, follow these steps:
+
 1. Open manifest.json file in widget folder. It describes widget properties as shown in the following table.
 2. Modify the properties accordingly.
 3. Save the file.
