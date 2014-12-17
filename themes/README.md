@@ -8,45 +8,9 @@ To add themes into the builder, follow these steps:
 3. Save the file.
 4. Copy the theme folder and paste it to the themes repository. By default, the theme repository is located under \client\stemapp\themes folder. In this way, your theme is available to the builder. 
 
-## The theme manifest file
-Theme is described by a manifest file, which is called manifest.json and is put under theme's root folder. This is an example of the file:
+## Theme development
+1. Overview
+https://developers.arcgis.com/web-appbuilder/guide/developer-s-guide-overview.htm
 
-```
-{
-  "name": "DemoTheme",
-  "panels": [
-    {
-      "name": "SimpleBorderPanel",
-      "description": "This is a panel with a border"
-    }
-  ],
-  "styles": [
-    {
-      "name": "default",
-      "description": "this is default style",
-      "styleColor": "red"
-    },
-    {
-      "name": "black",
-      "description": "this is black style",
-      "styleColor": "#000000"
-    }
-  ],
-  "layouts": [
-    {
-      "name": "default",
-      "description": "this is the left layout"
-    },
-    {
-      "name": "right",
-      "description": "this is the right layout"
-    }
-  ],
-  "version": "0.0.1",
-  "author": "Esri R&D Center Beijing",
-  "description": "",
-  "copyright": "",
-  "license": "http://www.apache.org/licenses/LICENSE-2.0",
-  "wabVersion": "1.1"
-}
-```
+2. Theme development
+https://developers.arcgis.com/web-appbuilder/guide/concepts.htm
