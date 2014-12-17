@@ -8,9 +8,7 @@ To add themes into the builder, follow these steps:
 3. Save the file.
 4. Copy the theme folder and paste it to the themes repository. By default, the theme repository is located under \client\stemapp\themes folder. In this way, your theme is available to the builder. 
 
-## Theme development
-1. Overview
-https://developers.arcgis.com/web-appbuilder/guide/developer-s-guide-overview.htm
+## Theme development guide
+1. Overview: https://developers.arcgis.com/web-appbuilder/guide/developer-s-guide-overview.htm
 
-2. Theme development
-https://developers.arcgis.com/web-appbuilder/guide/concepts.htm
+2. Theme development: https://developers.arcgis.com/web-appbuilder/guide/concepts.htm
