@@ -1,1 +1,194 @@
 Put custom widgets here. Each widget is a folder which contains all necessary widget elements.
+
+Widget is described by a manifest file, which is called manifest.json and is put under widget's root folder. This is the description of the file:
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>name</td>
+      <td>String</td>
+      <td>The name identifies the widget. The name should be the same as the folder name under the widgets folder.</td>
+      <td>Y</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>2D</td>
+      <td>Boolean</td>
+      <td>Determines if the widget supports 2D.</td>
+      <td>N</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>3D</td>
+      <td>Boolean</td>
+      <td>Determines if the widget supports 3D.</td>
+      <td>N</td>
+      <td>True</td>
+    </tr>
+    <tr>
+      <td>platform</td>
+      <td>String</td>
+      <td>Should be HTML.</td>
+      <td>Y</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>version</td>
+      <td>String</td>
+      <td>The widget version</td>
+      <td>Y</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>wabVersion</td>
+      <td>String</td>
+      <td>The WAB version that the widget depends on.</td>
+      <td>Y</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>author</td>
+      <td>String</td>
+      <td>N/A</td>
+      <td>N</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>String</td>
+      <td>N/A</td>
+      <td>N</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>copyright</td>
+      <td>String</td>
+      <td>N/A</td>
+      <td>N</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>license</td>
+      <td>String</td>
+      <td>N/A</td>
+      <td>N</td>
+      <td>N/A</td>
+    </tr>
+    <tr>
+      <td>properties</td>
+      <td>Object</td>
+      <td>See the following Properties table.</td>
+      <td>N</td>
+      <td>N/A</td>
+    </tr>
+  </tbody>
+</table>
+
+Properties table for widgets:
+
+<table>
+  <thead>
+    <tr>
+      <th>Attribute</th>
+      <th>Type</th>
+      <th>Description</th>
+      <th>Required</th>
+      <th>Default</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>inPanel</td>
+      <td>Boolean</td>
+      <td>The widget displays in a panel by default. The developer can change this behavior. If it's not in a panel, the widget displays directly.</td>
+      <td>No</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>hasLocale</td>
+      <td>Boolean</td>
+      <td>The framework loads the i18n files by convention.</td>
+      <td>No</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>hasStyle</td>
+      <td>Boolean</td>
+      <td>The framework loads the style files by convention.</td>
+      <td>No</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>hasConfig</td>
+      <td>Boolean</td>
+      <td>The framework loads the config files by convention.</td>
+      <td>No</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>hasUIFile</td>
+      <td>Boolean</td>
+      <td>The framework loads the UI template files by convention.</td>
+      <td>No</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>hasSettingPage</td>
+      <td>Boolean</td>
+      <td>The framework loads the setting files by convention.</td>
+      <td>No</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>hasSettingUIFile</td>
+      <td>Boolean</td>
+      <td>The framework loads the setting UI files by convention.</td>
+      <td>No</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>hasSettingLocale</td>
+      <td>Boolean</td>
+      <td>The framework loads the setting i18n files by convention.</td>
+      <td>No</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>hasSettingStyle</td>
+      <td>Boolean</td>
+      <td>The framework loads the setting style files by convention.</td>
+      <td>No</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>isController</td>
+      <td>Boolean</td>
+      <td>If the widget is a controller widget, set this property to true.</td>
+      <td>No</td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td>keepConfigAfterMapSwitched</td>
+      <td>Boolean</td>
+      <td>This property is used in the builder. If false, builder will clear the widget’s config data after the map is changed.</td>
+      <td>No</td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>hasVersionManager</td>
+      <td>Boolean</td>
+      <td>Whether the widget has VerionManager.js or not.</td>
+      <td>No</td>
+      <td>false</td>
+    </tr>
+  </tbody>
+</table>
