@@ -13,4 +13,4 @@ To add widgets into the builder or an app, follow these steps:
 ## Widget development
 Web AppBuilder for ArcGIS is built with ArcGIS API for JavaScript and Dojo. It allows you to customize and extend functionalities by creating your own widgets and themes.
 
-To develop your own widgets, have an [overview](https://developers.arcgis.com/web-appbuilder/guide/developer-s-guide-overview.htm) of related concepts firstly, then follow the detailed [development guide](https://developers.arcgis.com/web-appbuilder/guide/naming-conventions.htm) for more information. 
+To develop your own widgets, have an [overview](http://developers.arcgis.com/web-appbuilder/guide/developer-s-guide-overview.htm) of related concepts firstly, then follow the detailed [development guide](http://developers.arcgis.com/web-appbuilder/guide/naming-conventions.htm) for more information. 
