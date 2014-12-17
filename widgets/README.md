@@ -7,7 +7,7 @@ To add widgets into the builder or an app, follow these steps:
 1. Open manifest.json file in the widget folder. It describes widget properties as shown in the following table.
 2. Modify the properties accordingly.
 3. Save the file.
-4. Copy the widget folder and paste it to the widgets repository. By default, the widgets repository locates under \client\stemapp\widgets folder. In this way, your widget is available to the builder. 
+4. Copy the widget folder and paste it to the widgets repository. By default, the widgets repository is located under \client\stemapp\widgets folder. In this way, your widget is available to the builder. 
 5. If you prefer to deploy the widget to a specific app only, you can copy the widget folder and paste it to the widgets folder within the downloaded app, then edit the app config file to include this widget to the app.
 
 ## The widget manifest file
