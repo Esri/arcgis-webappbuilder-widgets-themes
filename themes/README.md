@@ -8,7 +8,7 @@ To add themes into the builder, follow these steps:
 3. Save the file.
 4. Copy the theme folder and paste it to the themes repository. By default, the theme repository is located under \client\stemapp\themes folder. In this way, your theme is available to the builder. 
 
-## Theme development guide
-1. Overview: https://developers.arcgis.com/web-appbuilder/guide/developer-s-guide-overview.htm
+## Theme development 
+Web AppBuilder for ArcGIS is built with ArcGIS API for JavaScript and Dojo. It allows you to customize and extend functionalities by creating your own widgets and themes.
 
-2. Theme development: https://developers.arcgis.com/web-appbuilder/guide/concepts.htm
+To develop your own themes, have an [overview](http://developers.arcgis.com/web-appbuilder/guide/developer-s-guide-overview.htm) of related concepts firstly, then follow the detailed [development guide](http://developers.arcgis.com/web-appbuilder/guide/concepts.htm) for more information. 
