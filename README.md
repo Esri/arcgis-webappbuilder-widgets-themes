@@ -23,7 +23,7 @@ To properly share your widgets and themes, please read and follow the instructio
 Find a bug or want to request a new feature? Please let us know by submitting an issue.
 
 ## Contributing
-Anyone and everyone is welcome to contribute. Please see our [guidelines for contributing](https://github.com/esri/contributing).
+Anyone and everyone is welcome to contribute. Please see our [guidelines for contributing](https://github.com/esri/contributing). For the Esri contributed widgets and themes in this repository, the changes made here will be supported only if the changes are rolled into Web AppBuilder's future releases. In the mean while, these widgets and themes will continue open sourced in this repository.
 
 ## Licensing
 Copyright 2013 Esri
