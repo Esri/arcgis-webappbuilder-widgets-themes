@@ -2,12 +2,13 @@
 This folder contains widgets that shared by the community. If you would like to share your widgets to the community, please check in them here.  
 
 ## How to add widgets into Web AppBuilder or a built app
-To add widgets into the builder, follow these steps:
+To add widgets into the builder or an app, follow these steps:
 
-1. Open manifest.json file in widget folder. It describes widget properties as shown in the following table.
+1. Open manifest.json file in the widget folder. It describes widget properties as shown in the following table.
 2. Modify the properties accordingly.
 3. Save the file.
-4. Copy the widget folder and paste it in the widgets repository. By default, the widgets repository is located under \client\stemapp\widgets folder. In this way, your widget is available to the builder. If you prefer to deploy the widget to a specific app only, you can copy the widget folder and paste it in the stemapp folder within the downloaded app, then configure it in the app config file.
+4. Copy the widget folder and paste it to the widgets repository. By default, the widgets repository locates under \client\stemapp\widgets folder. In this way, your widget is available to the builder. 
+5. If you prefer to deploy the widget to a specific app only, you can copy the widget folder and paste it to the widgets folder within the downloaded app, then edit the app config file to include this widget to the app.
 
 ## The widget manifest file
 Widget is described by a manifest file, which is called manifest.json and is put under widget's root folder. This is the description of the file:
