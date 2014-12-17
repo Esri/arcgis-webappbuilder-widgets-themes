@@ -4,6 +4,7 @@ ArcGIS Web AppBuilder Community
 ## Introductions
 This repo is for the Web AppBuilder developer community to share their widgets and themes.
 
+![WAB](wab.jpg)
 
 To properly share your widgets and themes, please read and follow the instruction from the [Widget Package](widgets/README.md) and [Theme Package](themes/README.md) notes.
 
