@@ -17,6 +17,9 @@ To properly share your widgets and themes, please read and follow the instructio
 * [ArcGIS Blog](http://blogs.esri.com/esri/arcgis/)
 * [twitter@esri](http://twitter.com/esri)
 
+## Issues
+Find a bug or want to request a new feature? Please let us know by submitting an issue.
+
 ## Contributing
 Anyone and everyone is welcome to contribute. Please see our [guidelines for contributing](https://github.com/esri/contributing).
 
