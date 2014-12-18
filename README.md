@@ -9,7 +9,7 @@ This repo is for the Web AppBuilder developer community to share their widgets a
 To properly share your widgets and themes, please read and follow the instruction from the [Widget Package](widgets/README.md) and [Theme Package](themes/README.md) notes.
 
 ## Resources
-* Visit the [developers site of Web AppBuilder for ArcGIS](https://developers.arcgis.com/web-appbuilder/) to for more information about:
+* Visit the [developers site of Web AppBuilder for ArcGIS](https://developers.arcgis.com/web-appbuilder/) for more information about:
     * Downloading the latest release for Web AppBuilder
     * Quick guide for using Web AppBuilder
     * Widget and theme developers guide
