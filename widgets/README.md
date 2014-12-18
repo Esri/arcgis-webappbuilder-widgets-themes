@@ -1,5 +1,5 @@
 
-This folder contains widgets that shared by the community. If you would like to share your widgets to the community, please upload them here.  
+This folder contains widgets shared by the community. If you would like to share your widgets to the community, please upload them here.  
 
 ## How to add widgets into Web AppBuilder or a built app
 To add widgets into the builder or an app, follow these steps:
