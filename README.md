@@ -12,7 +12,7 @@ To properly share your widgets and themes, please read and follow the instructio
 * Visit the [developers site of Web AppBuilder for ArcGIS](https://developers.arcgis.com/web-appbuilder/) for more information about:
     * Downloading the latest release for Web AppBuilder
     * Quick guide for using Web AppBuilder
-    * Widget and theme developers guide
+    * Widget and theme development guide
     * The API reference for app framework and JSON reference for app / widget configuration.
 
 * [ArcGIS for JavaScript API Resource Center](http://developers.arcgis.com)
