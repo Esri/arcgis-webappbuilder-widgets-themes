@@ -9,21 +9,21 @@ This repo is for the Web AppBuilder developer community to share their widgets a
 To properly share your widgets and themes, please read and follow the instruction from the [Widget Package](widgets/README.md) and [Theme Package](themes/README.md) notes.
 
 ## Resources
-* Please visit the [developers site of Web AppBuilder for ArcGIS](https://developers.arcgis.com/web-appbuilder/) to get more details about:
+* Visit the [developers site of Web AppBuilder for ArcGIS](https://developers.arcgis.com/web-appbuilder/) to for more information about:
     * Downloading the latest release for Web AppBuilder
     * Quick guide for using Web AppBuilder
     * Widget and theme developers guide
-    * The app framework API reference and app / widget configuration JSON reference
+    * The API reference for app framework and JSON reference for app / widget configuration.
 
 * [ArcGIS for JavaScript API Resource Center](http://developers.arcgis.com)
 * [ArcGIS Blog](http://blogs.esri.com/esri/arcgis/)
 * [twitter@esri](http://twitter.com/esri)
 
 ## Issues
-Find a bug or want to request a new feature? Please let us know by submitting an issue.
+Find a bug or request a new feature? Please let us know by submitting an issue.
 
 ## Contributing
-Anyone and everyone is welcome to contribute. Please see our [guidelines for contributing](https://github.com/esri/contributing). For the Esri contributed widgets and themes in this repository, the changes made here will be supported only if the changes are rolled into Web AppBuilder's future releases. In the mean while, these widgets and themes will continue open sourced in this repository.
+Anyone and everyone is welcome to contribute. Please refer to [guidelines for contributing](https://github.com/esri/contributing). Esri contributed widgets and themes in this repository are open sourced. Any changes made on them are not supported unless they are rolled into the future releases of Web AppBuilder.
 
 ## Licensing
 Copyright 2013 Esri
