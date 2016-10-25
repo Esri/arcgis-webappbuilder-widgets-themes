@@ -1,0 +1,22 @@
+<div>
+  <div class="titulo" data-dojo-attach-point="tituloWidget">${nls._widgetLabel}</div>
+  <table class="toolsCabecera">
+	  <tbody>
+		<tr>
+			<td>
+			  <div class= "eliminarResaltadoActual" data-dojo-attach-point="eliminarResaltadoActual">
+				  <a href="javascript:void(0);" title="${nls.eliminarResaltadoActual}" class="enlaceEliminarResaltadoActual" data-dojo-attach-point="enlaceEliminarResaltadoActual">${nls.eliminarResaltadoActual}</a>
+			  </div>
+			</td>
+			<td>
+				<div id="idCheckIdentificar" class="checkIdentificar" data-dojo-attach-point="checkIdentificar" data-dojo-type="dijit/form/CheckBox"></div>
+				<label for="idCheckIdentificar" data-dojo-attach-point="labelCheckIdentificar" >${nls.identificacionHabilitada}</label>
+			</td>
+		</tr>
+	  </tbody>
+  </table>
+  <div data-dojo-attach-point="seccionResultadoIdentificacion">
+	  <div data-dojo-attach-point="resultadoIdentificacion">
+	  </div>
+  </div>
+</div>

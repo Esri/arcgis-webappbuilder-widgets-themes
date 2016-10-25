@@ -1,0 +1,198 @@
+.titulo {
+	font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+.toolsCabecera {
+	margin-bottom: 10px;
+}
+
+.toolsCabecera td {
+	padding: 0 10px 0 0;
+}
+
+.checkIdentificar {
+}
+
+.eliminarResaltadoActual {
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+.eliminarResaltadoActual .enlaceEliminarResaltadoActual {
+    color: #21759B;
+	text-decoration: none;
+}
+
+.eliminarResaltadoActual .enlaceEliminarResaltadoActual:hover {
+	text-decoration: underline;
+}
+
+.divImagenes {
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+/*
+	max-width: 200px;
+	max-height: 150px;
+*/
+.divImagenes .imagen {
+	max-width: 278px;
+	max-height: 208px;
+	border-style: none;
+	margin-bottom: 3px;
+    cursor:pointer;
+}
+
+.enlaceValorCampo {
+    color: #21759B;
+	text-decoration: none;
+}
+
+.enlaceValorCampo:hover {
+	text-decoration: underline;
+}
+
+.divEnlaceZoomResaltar {
+	margin-top: 3px;
+	margin-bottom: 3px;
+	margin-right: 5px;
+	float: right;
+}
+
+.divEnlaceZoomResaltar .enlaceResaltar {
+    color: #21759B;
+	text-decoration: none;
+}
+
+.divEnlaceZoomResaltar .enlaceResaltar:hover {
+	text-decoration: underline;
+}
+
+.divEnlaceZoomResaltar .enlaceZoom {
+	margin-right: 10px;
+    color: #21759B;
+	text-decoration: none;
+}
+
+.divEnlaceZoomResaltar .enlaceZoom:hover {
+	text-decoration: underline;
+}
+
+.infoCatastro {
+	margin-top: 5px;
+}
+
+.infoCatastro .obteniendoInfoCatastro {
+	color: blue;
+	font-weight: bold;
+}
+
+.infoCatastro .sinInfoCatastro {
+	color: red;
+	font-weight: bold;
+}
+
+.infoCatastro .divEnlaceInfoCat {
+	margin-bottom: 3px;
+}
+
+.infoCatastro .enlaceInfoCat {
+    color: #21759B;
+	text-decoration: none;
+}
+
+.infoCatastro .enlaceInfoCat:hover {
+	text-decoration: underline;
+}
+
+.overlayImgAmpliada {
+	position: absolute;
+    top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+    opacity: 0.8;
+    background-color: rgb(0, 0, 0);
+}
+
+.divContenedorImgAmpliada {
+	position: absolute;
+	top: 50%; 
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 99999;
+	background-color: rgb(255, 255, 255);
+}
+
+.divImgAmpliada {
+	margin: 5px;
+}
+
+.divCerrarImgAmpliada {
+	float: right;
+	background-image: url("./images/close.png");
+	width: 13px;
+	height: 13px;
+	margin: 5px 10px 5px 5px;
+}
+
+.divCerrarImgAmpliada:hover {
+	cursor: pointer;
+}
+
+.imgAmpliada {
+}
+
+.jimu-widget-identificacionavanzada .TFtable{width:100%;border-collapse:collapse;font-size:0.9em;border:#d3d3d3 1px solid; margin-bottom: 5px;}
+.jimu-widget-identificacionavanzada .TFtable tr{background: #ECECEC;border-bottom: 1px solid #D8D8D8;}
+.jimu-widget-identificacionavanzada .TFtable tr:nth-child(even) {background-color: #E2E2E2;}
+.jimu-widget-identificacionavanzada .TFtable tr:hover{background-color:#FFFFD6;color:#6E6E6E;}
+
+.jimu-widget-identificacionavanzada .TFtable td{padding:2px; border:#d3d3d3 0px solid;}
+.jimu-widget-identificacionavanzada .TFtable td:nth-child(1) {font-weight: bold;}
+
+/*
+    margin-top: 5px;
+*/
+.jimu-widget-identificacionavanzada div.tablaDinamica {
+    display:inline-table;
+    background-color:rgb(250, 250, 250);
+    border: 1px solid lightgray;
+    margin-bottom: 3px;
+    padding:3px;
+    height:30px;
+    width:100%;
+    color:#000;
+    text-align:left;
+}
+
+/* Estilos paneles dojo */
+.claro .dijitTitlePaneContentInner {
+    padding: 3px;
+}
+
+/*
+.claro .dijitTitlePaneTitle {
+    background-color: #efefef;
+    background-image: url("images/standardGradient.png");
+    background-repeat: repeat-x;
+    background-image: -moz-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+    background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+    background-image: -o-linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+    _background-image: none;
+    border: 1px solid #b5bcc7;
+    padding: 0 7px 3px 7px;
+    min-height: 17px;
+    color: #494949;
+}
+
+.claro .dijitTitlePaneTitleOpen, .claro .dijitTitlePaneTitleFixedOpen {
+    background-color: #cfe5fa;
+    color: #000000;
+}
+*/
