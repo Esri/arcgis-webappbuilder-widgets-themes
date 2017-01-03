@@ -1,0 +1,12 @@
+{
+  "name": "Qr2Go",
+  "2D": true,
+  "3D": false,
+  "platform": "HTML",
+  "version": "2.2",
+  "wabVersion": "2.2",
+  "author": "Marcos Henrique Fedato",
+  "description": "widget that generates QRCode for use with mobile applications to navigate to the desired location, works on 2D maps",
+  "copyright": "",
+  "license": "http://www.apache.org/licenses/LICENSE-2.0"
+}
