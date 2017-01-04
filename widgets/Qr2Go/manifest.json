@@ -8,5 +8,8 @@
   "author": "Marcos Henrique Fedato",
   "description": "widget that generates QRCode for use with mobile applications to navigate to the desired location, works on 2D maps",
   "copyright": "",
-  "license": "http://www.apache.org/licenses/LICENSE-2.0"
+  "license": "http://www.apache.org/licenses/LICENSE-2.0",
+  "properties": {
+    "hasConfig": false
+  }
 }
