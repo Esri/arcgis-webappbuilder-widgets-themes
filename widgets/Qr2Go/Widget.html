@@ -1,0 +1,10 @@
+<div>
+	<div class="widget-header">${nls.clickMapName}</div><br />
+	<form id="qr2go-form" data-dojo-attach-point="form">
+		<input type="radio" name="engine" id="engineRadioOne" selected value="trek2there"/> <label for="engineRadioOne">Trek2There (ESRI Labs)</label> <br />
+		<input type="radio" name="engine" id="engineRadioTwo" value="navigator"/> <label for="engineRadioTwo">Navigator for ArcGIS</label> <br />
+		<input type="radio" data-dojo-type="dijit/form/RadioButton" name="engine" id="engineRadioThree" value="google"/> <label for="engineRadioThree">Google Maps</label> <br />
+	</form>
+	<div class="qrcode" data-dojo-attach-point="qrCodeNode">	
+	</div>
+</div>
