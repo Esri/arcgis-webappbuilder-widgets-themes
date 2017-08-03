@@ -1,0 +1,16 @@
+{
+  "name": "FractalDimension",
+  "2D": true,
+  "3D": false,
+  "platform": "HTML",
+  "version": "1.0",
+  "wabVersion": "2.5",
+  "author": "Jason Hine",
+  "description": "Use box-counting to measure approximate fractal dimension of a feature.",
+  "copyright": "",
+  "license": "http://www.apache.org/licenses/LICENSE-2.0",
+  "properties": {
+		"hasConfig":true,
+		"hasSettingPage":false
+  }
+}

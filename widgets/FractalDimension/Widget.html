@@ -1,0 +1,33 @@
+<div>
+    <div data-dojo-attach-point="introNode"></div>
+    <div class="jimu-r-row jimu-main-background fdim-section-head">${nls.labelInputs}</div>
+    <div class="jimu-r-row fdim-input-row">
+        <div class="col-1-3 fdim-input-label">${nls.labelLayer}:&nbsp;</div>
+        <div class="col-2-3" data-dojo-attach-point="inputsLayerControlNode"></div>
+    </div>
+    <div class="jimu-r-row fdim-input-row">
+        <div class="col-1-3 fdim-input-label">${nls.labelPasses}:&nbsp;</div>
+        <div class="col-2-3" data-dojo-attach-point="inputsPassesControlNode"></div>
+    </div>
+    <div class="jimu-r-row fdim-input-row">
+        <div class="fdim-input-button" data-dojo-attach-point="inputsSubmitButtonNode"></div>
+    </div>
+
+    <div class="jimu-r-row jimu-main-background fdim-section-head"
+         data-dojo-attach-point="outputsSectionHeadNode">${nls.labelResults}
+    </div>
+    <div class="jimu-r-row fdim-output-row">
+        <div class="col-1-3 fdim-output-label">${nls.labelDimension}:&nbsp;</div>
+        <div class="col-2-3 fdim-output-value" id="outputDimensionValue"></div>
+    </div>
+    <div class="jimu-r-row fdim-output-row">
+        <div class="col-1-3 fdim-output-label">${nls.labelRSquared}:&nbsp;</div>
+        <div class="col-2-3 fdim-output-value" id="outputRSquaredValue"></div>
+    </div>
+    <div class="jimu-r-row fdim-output-row">
+        <div class="fdim-output-chart" data-dojo-attach-point="outputChartNode"></div>
+    </div>
+    <div class="jimu-r-row fdim-output-row">
+        <div>${nls.chartNotes}</div>
+    </div>
+</div>
