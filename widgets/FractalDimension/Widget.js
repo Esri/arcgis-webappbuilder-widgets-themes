@@ -70,7 +70,6 @@ define([
 
              postCreate: function() {
                  this.inherited(arguments);
-                 console.log('postCreate');
 
                  // Display intro/instructions
                  if (this.nls.intro) {
@@ -113,7 +112,6 @@ define([
                  this.own(on(this._btnSubmitNode, "click", lang.hitch(this,
                      this._onSubmitClick)));
                  this.own(on(this._selectLayerNode, "change", lang.hitch(this, function(){
-                     console.log("select changed");
                      if (this._selectLayerNode.get("displayedValue")==this.nls.labelSelectLayer ||
                          this._selectLayerNode.get("displayedValue")==this.nls.labelLayerNotFound) {
                          this._btnSubmitNode.set("disabled", true);
@@ -143,7 +141,6 @@ define([
              },
 
             _updateSelect: function() {
-                console.log("updateSelect");
                 var mapLayers = this.map.getLayersVisibleAtScale(this.map.getScale());
                 var numCurrentlyVizFeatureLayers = 0;
                 var selLayers = [{label: this.nls.labelSelectLayer,value: " ", selected: true}];
@@ -184,28 +181,22 @@ define([
             },
 
             _onSubmitClick: function () {
-                console.log('onSubmitClick');
-
                 if (this._btnSubmitNode.get('label')==this.nls.btnLabelSelect) {
-                    console.log('...selecting feature');
                     this._connectMapClickHandler();
                     this._disableWidgetControls(true);
                     this._highlightGraphicsLayer.clear();
                     this._btnSubmitNode.set('label', this.nls.btnLabelCancelSel);
                     domStyle.set("fdim-button-submit","color","red");
                 } else if (this._btnSubmitNode.get('label')==this.nls.btnLabelCancelSel) {
-                    console.log('...cancelling selection.');
                     this._disconnectMapClickHandler();
                     this._disableWidgetControls(false);
                     this._btnSubmitNode.set('label', this.nls.btnLabelSelect);
                     domStyle.set("fdim-button-submit","color","");
                 } else if (this._btnSubmitNode.get('label')==this.nls.btnLabelCancelAna) {
-                    console.log('...cancelling analysis.');
                     this._cancelAnalysis();
                     this._btnSubmitNode.set('label', this.nls.btnLabelClear);
                     domStyle.set("fdim-button-submit","color","");
                 } else if (this._btnSubmitNode.get('label')==this.nls.btnLabelClear) {
-                    console.log('...clearing analysis.');
                     this._clearAnalysis();
                     this._btnSubmitNode.set('label', this.nls.btnLabelSelect);
                 }
@@ -213,23 +204,13 @@ define([
 
             startup: function () {
                 this.inherited(arguments);
-                console.log('startup');
-            },
-
-            onOpen: function(){
-                console.log('onOpen start');
             },
 
             onClose: function(){
-                console.log('onClose');
-
-                // cancel any analysis that may be taking place
                 this._cancelAnalysis();
-
             },
 
             _cancelAnalysis: function () {
-                console.log("_cancelAnalysis");
                 this._disconnectMapClickHandler();
                 topic.publish("fdim/cancel"); // cancel any running deferreds
                 this.outputsSectionHeadNode.innerHTML = this.nls.labelCancelled;
@@ -240,7 +221,6 @@ define([
             },
 
             _clearAnalysis: function () {
-                console.log("_clearAnalysis");
                 topic.publish("fdim/cancel"); // cancel any running deferreds
                 this.outputsSectionHeadNode.innerHTML = this.nls.labelResults;
                 this._disableWidgetControls(false);
@@ -252,17 +232,14 @@ define([
             },
 
             _connectMapClickHandler: function () {
-                console.log('_connectMapClickHandler');
                 this._disableWebMapPopup(true);
                 this._mapClickHandler = this.own(this.map.on("click", lang.hitch(this,
                     this._onMapClick)));
             },
 
             _disconnectMapClickHandler: function () {
-                console.log('_disconnectMapClickHandler');
                 if (this._mapClickHandler) {
                     if (this._mapClickHandler[0]) {
-                        console.log(this._mapClickHandler[0]);
                         this._mapClickHandler[0].remove();
                     }
                 }
@@ -270,7 +247,6 @@ define([
             },
 
             _onMapClick: function (evt) {
-                console.log('_onMapClick');
                 this.outputsSectionHeadNode.innerHTML = this.nls.labelWorking;
 
                 // get the input parameters, then disable controls
@@ -286,10 +262,6 @@ define([
             },
 
             _queryComplete: function (results) {
-                console.log('_queryComplete');
-
-                // TODO: Consider creating a custom feature action
-
                 this._numAnalysisProgress = 0;
                 this._analysisResults = [];
 
@@ -324,7 +296,6 @@ define([
             _doAnalysis: function (boxGeometry,analysisLevel) {
                 "use strict";
                 var currentLevel = analysisLevel + 1;
-                console.log('... doing analysis at level' + currentLevel);
 
                 // break the box down into quarters
                 var tempQuarterBoxGeometries = this._quarterBoxGeometry(boxGeometry);
@@ -374,7 +345,6 @@ define([
             },
 
             _printOutputs: function (analysisResults) {
-                console.log("Printing outputs...");
 
                 // update button
                 this._disconnectMapClickHandler();
