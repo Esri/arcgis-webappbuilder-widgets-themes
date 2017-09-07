@@ -1,0 +1,5 @@
+{
+  "_comment": "To improve accuracy, minPasses should be 5 (or greater)",
+  "minPasses": 5,
+  "maxPasses": 7
+}
