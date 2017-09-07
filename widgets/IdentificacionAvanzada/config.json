@@ -1,0 +1,144 @@
+{
+  "radioIdentificacionPoligonos": 1,
+  "factorPaddingIdentificacionPuntosLineas": 3,
+  "serviciosAIdentificar": [
+    {
+      "id": "SeguimientoProduccion",
+      "url": "http://services5.arcgis.com/FZTIUdZkataugPvd/ArcGIS/rest/services/cAAE_Explotacion/FeatureServer/0",
+      "camposServicio": [
+        "*"
+      ]
+    },
+    {
+      "id": "EstablecimientosDGIEI",
+      "url": "http://services5.arcgis.com/FZTIUdZkataugPvd/ArcGIS/rest/services/cAAE_Explotacion/FeatureServer/1",
+      "camposServicio": [
+        "DESCRIPCION",
+        "CODIGO_CNAE",
+        "MUNICIPIO",
+        "FechaAltaDENA"
+      ]
+    },
+    {
+      "id": "NavesLocales",
+      "url": "http://services5.arcgis.com/FZTIUdZkataugPvd/ArcGIS/rest/services/cAAE_Explotacion/FeatureServer/5",
+      "camposServicio": [
+        "*"
+      ]
+    },
+    {
+      "id": "Parcelas",
+      "url": "http://services5.arcgis.com/FZTIUdZkataugPvd/ArcGIS/rest/services/cAAE_Explotacion/FeatureServer/6",
+      "camposServicio": [
+        "*"
+      ]
+    }
+  ],
+  "informacionCatastro": {
+    "servicioWFS": "http://idena.navarra.es/ogc/wfs",
+    "sistemaReferencia": 25830,
+    "crs": "urn:ogc:def:crs:EPSG::25830",
+    "capasWFSParcelas": [
+      "IDENA:CATAST_Pol_ParcelaUrba",
+      "IDENA:CATAST_Pol_ParcelaRusti",
+      "IDENA:CATAST_Pol_ParcelaMixta"
+    ]
+  },
+  "factorZoomPoligono": 1.5,
+  "ajusteZoomPunto": 2,
+  "interfazUsuario": {
+    "mostrarTitulo": true,
+    "textoValorNull": "",
+    "paneles": [
+      {
+        "titulo": "Inmobiliaria",
+        "abiertoInicialmente": true,
+        "serviciosGIS": [
+          {
+            "id": "Parcelas",
+            "informacionCatastroAsociada": true,
+            "campos": [
+              {
+                "campo": "refcat"
+              },
+              {
+                "campo": "cod_establecimiento"
+              },
+              {
+                "campo": "TipoParcelaSite"
+              },
+              {
+                "campo": "SuperficieEdificada",
+                "formato": "#,##0.##"
+              },
+              {
+                "campo": "PrecioVentaSinIVA",
+                "formato": "#,##0.##"
+              },
+              {
+                "campo": "Titular"
+              },
+              {
+                "campo": "FechaActualizacion",
+                "formato": "dd/MM/yyyy HH:mm:ss"
+              }
+            ]
+          },
+          {
+            "id": "NavesLocales",
+            "campos": [
+              {
+                "campo": "Altura"
+              },
+              {
+                "campo": "cod_naveLocal"
+              },
+              {
+                "campo": "valor",
+                "formato": "#,##0.##"
+              },
+              {
+                "campo": "refcat"
+              },
+              {
+                "campo": "Alquiler"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "titulo": "Panel 2",
+        "abiertoInicialmente": false,
+        "serviciosGIS": [
+          {
+            "id": "EstablecimientosDGIEI",
+            "campos": [
+              {
+                "campo": "DESCRIPCION"
+              },
+              {
+                "campo": "CODIGO_CNAE"
+              }
+            ]
+          },
+          {
+            "id": "SeguimientoProduccion",
+            "campos": [
+              {
+                "campo": "Nombre"
+              },
+              {
+                "campo": "Estado"
+              },
+              {
+                "campo": "AvanceProduccionFase3",
+                "formato": "#,##0.##"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

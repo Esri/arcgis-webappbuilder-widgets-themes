@@ -1,0 +1,16 @@
+{
+  "name": "IdentificacionAvanzada",
+  "platform": "HTML",
+  "version": "1.0",
+  "wabVersion": "2.1",
+  "author": "Esri Spain LRG",
+  "description": "Widget de identificación avanzada",
+  "copyright": "Esri Spain",
+  "license": "",
+  "properties": {
+    "hasSettingPage": false,
+    "hasSettingUIFile": false,
+    "hasSettingLocale": false,
+    "hasSettingStyle": false
+  }
+}
